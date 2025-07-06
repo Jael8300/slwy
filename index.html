@@ -1,842 +1,375 @@
-/* Reset and base styles */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Website</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100;0,200;0,300;0,400;0,700;1,100;1,200;1,300;1,400;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
 
-body {
-    font-family: 'Noto Serif', serif;
-    line-height: 1.6;
-    color: #333;
-    background-color: #fff7d2;
-    font-weight: 300;
-}
+    <main>
+        <!-- Hero Video Section -->
+        <section id="hero-video" class="hero-section">
+            <div class="video-container">
+                <video id="heroVideo" autoplay muted loop playsinline>
+                    <source src="videos/hero-video.mp4" type="video/mp4">
+                    <source src="videos/hero-video.webm" type="video/webm">
+                    Your browser does not support the video tag.
+                </video>
+                <div class="video-overlay">
+                    <div class="hero-content">
+                        <h1>slwy</h1>
+                        <p>appreciating the little things</p>
+                        <!-- <button id="clickMe" class="hero-button">Get Started</button> -->
+                    </div>
+                </div>
+            </div>
+        </section>
 
-/* Header styles */
-header {
-    background-color: rgba(44, 62, 80, 0.95);
-    color: white;
-    padding: 1rem 0;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 1000;
-    backdrop-filter: blur(10px);
-    transition: background-color 0.3s ease;
-}
+        <section id="home" class="text-section">
+            <h2>About slwy</h2>
+            <p>Think of this as your weekend house party — good vibes, great food, live music, and even better company. It's a laid-back gathering where everyone's welcome to hang out, mingle, and just enjoy the moment. Whether you're here for the chats, the tunes, or just to chill, this is your space to feel at home.</p>
+        </section>
 
-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 2rem;
-}
+        <section id="about" class="text-section">
+            <h2>Our Mission</h2>
+            <p>To bring people together in a relaxed, welcoming setting where connections can grow naturally. We want everyone to feel a stronger sense of belonging, make new memories, and most of all — have fun.</p>
+        </section>
 
-nav h1 {
-    font-size: 1.5rem;
-    font-weight: 200;
-}
+        <!-- Event Details Section -->
+        <section id="event-details" class="event-section">
+            <div class="event-container">
+                <h2>Event Details</h2>
+                <div class="event-info">
+                    <div class="event-item">
+                        <div class="event-icon"><i class="fa-sharp-duotone fa-solid fa-calendar-week"></i></div>
+                        <div class="event-content">
+                            <h3>Date</h3>
+                            <p>Saturday, December 27th, 2025</p>
+                        </div>
+                    </div>
+                    <div class="event-item">
+                        <div class="event-icon"><i class="fa-sharp-duotone fa-solid fa-clock"></i></div>
+                        <div class="event-content">
+                            <h3>Time</h3>
+                            <p>1:00 PM - 4:00 PM</p>
+                        </div>
+                    </div>
+                    <div class="event-item">
+                        <div class="event-icon"><i class="fa-sharp-duotone fa-solid fa-location-dot"></i></div>
+                        <div class="event-content">
+                            <h3>Location</h3>
+                            <p>Hall of Jewels<br>BW Monastery</p>
+                        </div>
+                    </div>
+                    <div class="event-item">
+                        <div class="event-icon"><i class="fa-sharp-duotone fa-solid fa-ticket"></i></div>
+                        <div class="event-content">
+                            <h3>Tickets</h3>
+                            <p>Free Entry<br>Registration Required</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-nav ul {
-    display: flex;
-    list-style: none;
-    gap: 2rem;
-}
+        <!-- Music Section - Left aligned with rotating photos -->
+        <section id="music" class="content-section left-aligned">
+            <div class="content-wrapper">
+                <div class="text-content">
+                    <h2>Music</h2>
+                    <p>Music is the universal language that connects souls across cultures and generations. From classical symphonies to modern beats, we explore the rhythms that move us and the melodies that define our experiences. Each note tells a story, each song creates a memory.</p>
+                </div>
+                <div class="media-content">
+                    <div class="photo-carousel">
+                        <div class="photo-slide active">
+                            <img src="images/music1.jpg" alt="Music Photo 1">
+                        </div>
+                        <div class="photo-slide">
+                            <img src="images/music2.jpg" alt="Music Photo 2">
+                        </div>
+                        <div class="photo-slide">
+                            <img src="images/music3.jpg" alt="Music Photo 3">
+                        </div>
+                        <div class="photo-slide">
+                            <img src="images/music4.jpg" alt="Music Photo 4">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-nav a {
-    color: white;
-    text-decoration: none;
-    transition: color 0.3s ease;
-    font-weight: 200;
-}
+        <!-- Food Section - Right aligned with rotating photos -->
+        <section id="food" class="content-section right-aligned">
+            <div class="content-wrapper">
+                <div class="media-content">
+                    <div class="photo-carousel">
+                        <div class="photo-slide active">
+                            <img src="images/food1.jpg" alt="Food Photo 1">
+                        </div>
+                        <div class="photo-slide">
+                            <img src="images/food2.jpg" alt="Food Photo 2">
+                        </div>
+                        <div class="photo-slide">
+                            <img src="images/food3.jpg" alt="Food Photo 3">
+                        </div>
+                    </div>
+                </div>
+                <div class="text-content">
+                    <h2>Food</h2>
+                    <p>Food is more than sustenance—it's culture, creativity, and connection. From street food adventures to fine dining experiences, we celebrate the artistry of flavor and the joy of sharing meals. Every dish has a story, every taste brings people together.</p>
+                </div>
+            </div>
+        </section>
 
-nav a:hover {
-    color: #f1cb32;
-}
+        <!-- Chill Section - Left aligned with video -->
+        <section id="chill" class="content-section left-aligned">
+            <div class="content-wrapper">
+                <div class="text-content">
+                    <h2>Chill</h2>
+                    <p>In our fast-paced world, finding moments to simply breathe and be present is essential. Whether it's watching clouds drift by, feeling sand between your toes, or enjoying quiet conversations with friends, these peaceful moments restore our souls and remind us what truly matters.</p>
+                </div>
+                <div class="media-content">
+                    <video autoplay muted loop playsinline>
+                        <source src="videos/chill-video.mp4" type="video/mp4">
+                        <source src="videos/chill-video.webm" type="video/webm">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+            </div>
+        </section>
 
-/* Hero Video Section */
-.hero-section {
-    position: relative;
-    width: 100vw; /* Always full viewport width */
-    height: 100vh;
-    min-height: 500px;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0;
-    padding: 0;
-    left: 50%; /* Center the section */
-    transform: translateX(-50%); /* Perfect centering */
-    margin-left: 0;
-    margin-right: 0;
-}
+        <section id="contact" class="contact-section">
+            <h2>Registration</h2>
+            <p>Join us for a good time!</p>
+            <form id="contactForm" class="alternating-form">
+                <div class="input-group left">
+                    <input type="text" id="name" placeholder="Your Name" required>
+                </div>
+                <div class="input-group right">
+                    <input type="class" id="class" placeholder="Your Class" required>
+                </div>
+                <div class="input-group left">
+                    <textarea id="message" placeholder="Your Message" required></textarea>
+                </div>
+                <div class="button-container">
+                    <button type="submit">Send Message</button>
+                </div>
+            </form>
+        </section>
+    </main>
 
-.video-container {
-    position: relative;
-    width: 100vw; /* Full viewport width */
-    height: 100vh; /* Full viewport height */
-    overflow: hidden; /* Hide any overflow */
-}
+    <footer>
+        <p>&copy; 2025 daybyday. All rights reserved.</p>
+    </footer>
 
-#heroVideo {
-    width: 100vw; /* Always fill viewport width */
-    height: 100vh; /* Always fill viewport height */
-    object-fit: cover; /* Cover the entire area, cropping if needed */
-    object-position: center; /* Keep video centered when cropping */
-    position: absolute;
-    top: 0;
-    left: 0;
-    filter: none;
-    min-width: 100%; /* Ensure minimum width coverage */
-    min-height: 100%; /* Ensure minimum height coverage */
-}
-
-.video-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.4);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 2;
-}
-
-.hero-content {
-    text-align: center;
-    color: white;
-    max-width: 800px;
-    padding: 2rem;
-    margin-top: 100px;
-}
-
-.hero-content h1 {
-    font-family: 'Noto Serif', serif;
-    font-weight: 200;
-    font-size: 7rem;
-    margin-bottom: 1rem;
-    margin-top: 100px;
-    text-shadow: 2px 2px 4px #ff3131;
-    animation: fadeInUp 1s ease-out;
-    color: #f1cb32;
-    letter-spacing: 2.5px;
-}
-
-.hero-content p {
-    font-family: 'Noto Serif', serif;
-    font-weight: 100;
-    font-size: 1.2rem;
-    margin-bottom: 2rem;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-    animation: fadeInUp 1s ease-out 0.3s both;
-    color: #f1cb32;
-    letter-spacing: 2.5px;
-}
-
-.hero-button {
-    background-color: #f1cb32;
-    color: #2c3e50;
-    border: none;
-    padding: 1rem 2rem;
-    border-radius: 50px;
-    cursor: pointer;
-    font-size: 1.1rem;
-    transition: all 0.3s ease;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    animation: fadeInUp 1s ease-out 0.6s both;
-    font-weight: 200;
-}
-
-.hero-button:hover {
-    background-color: #2c3e50;
-    color: #f1cb32;
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-}
-
-/* Animation keyframes */
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* Main content styles */
-main {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0;
-}
-
-/* Text sections - no background, centered */
-.text-section {
-    text-align: center;
-    max-width: 800px;
-    margin: 4rem auto;
-    padding: 2rem;
-    background: none;
-    box-shadow: none;
-    border-radius: 0;
-}
-
-.text-section h2 {
-    color: #2c3e50;
-    margin-bottom: 1.5rem;
-    font-size: 2.5rem;
-    font-weight: 200;
-    letter-spacing: 1px;
-    font-family: 'Noto Serif', serif;
-}
-
-.text-section p {
-    font-size: 1.2rem;
-    line-height: 1.8;
-    color: #555;
-    max-width: 600px;
-    margin: 0 auto;
-    font-weight: 100;
-    font-family: 'Noto Serif', serif;
-}
-
-/* Event Details Section */
-.event-section {
-    margin: 6rem auto;
-    max-width: 1000px;
-    padding: 4rem 2rem;
-    text-align: center;
-}
-
-.event-container h2 {
-    font-family: 'Noto Serif', serif;
-    font-weight: 200;
-    font-size: 3rem;
-    color: #2c3e50;
-    margin-bottom: 3rem;
-    letter-spacing: 1px;
-}
-
-.event-info {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 3rem;
-    margin-bottom: 4rem;
-    justify-items: center; /* Center items within their grid cells */
-    place-items: center; /* Center items both horizontally and vertically */
-}
-
-/* Alternative layout for better centering on uneven rows */
-@media (max-width: 900px) {
-    .event-info {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center; /* Center all items */
-        align-items: flex-start;
-        gap: 3rem;
+    <script>
+// Wait for the DOM to be fully loaded
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('DOM loaded, initializing carousels...');
+    
+    // Get elements
+    const contactForm = document.getElementById('contactForm');
+    const heroVideo = document.getElementById('heroVideo');
+    const header = document.querySelector('header');
+    
+    // Photo carousel functionality - handles multiple carousels
+    function initPhotoCarousels() {
+        const carousels = document.querySelectorAll('.photo-carousel');
+        console.log(`Found ${carousels.length} carousels`);
+        
+        carousels.forEach((carousel, carouselIndex) => {
+            const slides = carousel.querySelectorAll('.photo-slide');
+            console.log(`Carousel ${carouselIndex + 1} has ${slides.length} slides`);
+            
+            let currentSlide = 0;
+            
+            if (slides.length > 0) {
+                if (carousel.intervalId) {
+                    clearInterval(carousel.intervalId);
+                }
+                
+                slides.forEach(slide => slide.classList.remove('active'));
+                slides[0].classList.add('active');
+                
+                function showNextSlide() {
+                    console.log(`Carousel ${carouselIndex + 1}: showing slide ${currentSlide} -> ${(currentSlide + 1) % slides.length}`);
+                    
+                    slides[currentSlide].classList.remove('active');
+                    currentSlide = (currentSlide + 1) % slides.length;
+                    slides[currentSlide].classList.add('active');
+                }
+                
+                carousel.intervalId = setInterval(showNextSlide, 2000);
+                console.log(`Carousel ${carouselIndex + 1} initialized with ${slides.length} slides`);
+            } else {
+                console.error(`Carousel ${carouselIndex + 1} has no slides!`);
+            }
+        });
     }
     
-    .event-item {
-        flex: 0 0 auto; /* Don't grow or shrink */
-        width: 200px; /* Fixed width for consistency */
-    }
-}
-
-.event-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    padding: 2rem;
-    border-radius: 8px;
-    transition: transform 0.3s ease;
-}
-
-.event-item:hover {
-    transform: translateY(-5px);
-}
-
-.event-icon {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-    color: #2c3e50; /* Primary color */
-    transition: all 0.3s ease;
-}
-
-/* Style the Sharp Duotone icons */
-.event-icon i {
-    --fa-primary-color: #f1cb32; /* Primary layer - your yellow */
-    --fa-secondary-color: #2c3e50; /* Secondary layer - your dark blue */
-    --fa-secondary-opacity: 0.3; /* Make secondary layer translucent */
-}
-
-/* Hover effect for icons */
-.event-item:hover .event-icon i {
-    --fa-primary-color: #2c3e50;
-    --fa-secondary-color: #f1cb32;
-    --fa-secondary-opacity: 0.5;
-    transform: scale(1.1);
-}
-
-.event-content h3 {
-    font-family: 'Noto Serif', serif;
-    font-weight: 200;
-    font-size: 1.5rem;
-    color: #2c3e50;
-    margin-bottom: 0.5rem;
-    letter-spacing: 0.5px;
-}
-
-.event-content p {
-    font-family: 'Noto Serif', serif;
-    font-weight: 100;
-    font-size: 1.1rem;
-    color: #666;
-    line-height: 1.6;
-    margin: 0;
-}
-
-.event-description {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 2rem;
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 8px;
-    border: 1px solid rgba(44, 62, 80, 0.1);
-}
-
-.event-description p {
-    font-family: 'Noto Serif', serif;
-    font-weight: 100;
-    font-size: 1.2rem;
-    line-height: 1.8;
-    color: #555;
-    margin: 0;
-    font-style: italic;
-}
-
-/* FIXED: Content sections with alternating layouts */
-.content-section {
-    margin: 6rem auto;
-    max-width: 1200px;
-    padding: 0 2rem;
-}
-
-.content-wrapper {
-    display: flex;
-    align-items: center;
-    gap: 4rem;
-    min-height: 400px;
-}
-
-/* SPECIFIC selectors for alternating layout */
-section#music .content-wrapper {
-    flex-direction: row; /* Text LEFT, Media RIGHT */
-}
-
-section#food .content-wrapper {
-    flex-direction: row-reverse; /* Media LEFT, Text RIGHT */
-}
-
-section#chill .content-wrapper {
-    flex-direction: row; /* Text LEFT, Media RIGHT */
-}
-
-/* Text content styling */
-.text-content {
-    flex: 1;
-    max-width: 500px;
-}
-
-.text-content h2 {
-    font-family: 'Noto Serif', serif;
-    font-weight: 200;
-    font-size: 3rem;
-    color: #2c3e50;
-    margin-bottom: 1.5rem;
-    letter-spacing: 1px;
-}
-
-.text-content p {
-    font-family: 'Noto Serif', serif;
-    font-weight: 100;
-    font-size: 1.2rem;
-    line-height: 1.8;
-    color: #555;
-}
-
-/* Media content styling - FIXED ASPECT RATIO */
-.media-content {
-    flex: 1;
-    width: 100%;
-    max-width: 600px;
-    /* Use aspect ratio instead of fixed height */
-    aspect-ratio: 2 / 1; /* 2:1 landscape ratio */
-    position: relative;
-    overflow: hidden;
-    border-radius: 8px;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-    background: #f0f0f0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-/* Fallback for browsers that don't support aspect-ratio */
-@supports not (aspect-ratio: 2 / 1) {
-    .media-content {
-        height: 300px;
-        min-height: 250px;
-    }
-}
-
-/* Video styling */
-.media-content video {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 8px;
-}
-
-/* Photo carousel for music and food sections */
-.photo-carousel {
-    width: 100%;
-    height: 100%;
-    position: relative;
-    border-radius: 8px;
-    overflow: hidden;
-    background: #f0f0f0;
-}
-
-.photo-slide {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    transition: opacity 1s ease-in-out;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: #f0f0f0;
-}
-
-.photo-slide.active {
-    opacity: 1 !important;
-    z-index: 5;
-}
-
-.photo-slide img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 8px;
-    display: block;
-    /* Add fallback for broken images */
-    background: linear-gradient(45deg, #f1cb32, #2c3e50);
-}
-
-/* Fallback styling for images that fail to load */
-.photo-slide img:before {
-    content: "Image Loading...";
-    display: block;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(45deg, #f1cb32, #2c3e50);
-    color: white;
-    text-align: center;
-    line-height: 200px;
-    font-family: 'Noto Serif', serif;
-}
-
-/* Contact section */
-.contact-section {
-    background: none;
-    margin: 4rem auto;
-    padding: 3rem;
-    border-radius: 0;
-    box-shadow: none;
-    max-width: 800px;
-    text-align: center;
-}
-
-.contact-section h2 {
-    color: #2c3e50;
-    margin-bottom: 1rem;
-    font-size: 2.5rem;
-    font-family: 'Noto Serif', serif;
-    font-weight: 200;
-}
-
-.contact-section p {
-    margin-bottom: 3rem;
-    color: #666;
-    font-family: 'Noto Serif', serif;
-    font-weight: 100;
-    font-size: 1.2rem;
-}
-
-/* Alternating form styles */
-.alternating-form {
-    display: block;
-    width: 100%;
-}
-
-.input-group {
-    margin: 3rem 0;
-    width: 100%;
-}
-
-.input-group.left {
-    text-align: left;
-    padding-left: 0;
-    padding-right: 40%;
-}
-
-.input-group.right {
-    text-align: right;
-    padding-left: 40%;
-    padding-right: 0;
-}
-
-/* Input and textarea styles */
-.alternating-form input,
-.alternating-form textarea {
-    background: transparent;
-    border: none;
-    border-bottom: 2px solid #ddd;
-    padding: 1rem 0;
-    font-size: 1.1rem;
-    width: 100%;
-    font-family: 'Noto Serif', serif;
-    font-weight: 100;
-    color: #333;
-    transition: border-color 0.3s ease;
-}
-
-.alternating-form input:focus,
-.alternating-form textarea:focus {
-    outline: none;
-    border-bottom-color: #f1cb32;
-}
-
-.alternating-form input::placeholder,
-.alternating-form textarea::placeholder {
-    color: #999;
-    font-family: 'Noto Serif', serif;
-    font-weight: 100;
-    font-style: italic;
-}
-
-.alternating-form textarea {
-    min-height: 120px;
-    resize: vertical;
-}
-
-/* Button container */
-.button-container {
-    text-align: center;
-    margin-top: 4rem;
-}
-
-/* Button styling */
-.alternating-form button {
-    background: transparent;
-    border: 2px solid #2c3e50;
-    color: #2c3e50;
-    padding: 1rem 3rem;
-    font-size: 1.1rem;
-    font-family: 'Noto Serif', serif;
-    font-weight: 200;
-    letter-spacing: 1px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    text-transform: uppercase;
-}
-
-.alternating-form button:hover {
-    background: #2c3e50;
-    color: #f1cb32;
-    transform: translateY(-2px);
-}
-
-/* Footer */
-footer {
-    background-color: #2c3e50;
-    color: white;
-    text-align: center;
-    padding: 2rem 0;
-    margin-top: 4rem;
-    font-weight: 100;
-}
-
-footer p {
-    font-family: 'Noto Serif', serif;
-    font-weight: 100;
-}
-
-/* Mobile responsive design - CONSISTENT SCALING */
-@media (max-width: 968px) {
-    /* Override alternating layout on mobile - stack vertically */
-    section#music .content-wrapper,
-    section#food .content-wrapper,
-    section#chill .content-wrapper {
-        flex-direction: column !important;
-        gap: 3rem;
-        text-align: center;
+    // Initialize carousels
+    initPhotoCarousels();
+    
+    // Video optimization for mobile
+    function optimizeVideoForDevice() {
+        const videos = document.querySelectorAll('video');
+        
+        videos.forEach(video => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        video.play().catch(e => console.log('Video play failed:', e));
+                    } else {
+                        video.pause();
+                    }
+                });
+            });
+            
+            observer.observe(video);
+        });
     }
     
-    .text-content {
-        max-width: 100%;
-        order: 1; /* Text appears first on mobile */
+    // Initialize video optimizations
+    optimizeVideoForDevice();
+    
+    // Header background change on scroll (only if header exists)
+    if (header) {
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 100) {
+                header.style.backgroundColor = 'rgba(44, 62, 80, 0.95)';
+            } else {
+                header.style.backgroundColor = 'rgba(44, 62, 80, 0.7)';
+            }
+        });
     }
     
-    .media-content {
-        width: 90%; /* Scale down on mobile */
-        max-width: 500px;
-        order: 2; /* Media appears second on mobile */
-        margin: 0 auto; /* Center the media */
+     // Form submission to Google Sheets
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const classValue = document.getElementById('class').value;
+            const message = document.getElementById('message').value;
+            
+            if (name && classValue && message) {
+                // Disable submit button to prevent double submission
+                const submitButton = contactForm.querySelector('button[type="submit"]');
+                const originalText = submitButton.textContent;
+                submitButton.textContent = 'Submitting...';
+                submitButton.disabled = true;
+                
+                // 🔴 REPLACE THIS URL WITH YOUR GOOGLE APPS SCRIPT URL 🔴
+                const googleAppsScriptURL = 'https://script.google.com/macros/s/AKfycbzBCDXB1eYydwmks1-WnarvZVRsyKhNRhgcUd3B1TRvrGmIsS1K_nB73OZdF6WEYrRC/exec';
+                
+                // Prepare data as FormData (same as your working test)
+                const formData = new FormData();
+                formData.append('Name', name);
+                formData.append('Class', classValue);
+                formData.append('Message', message);
+                formData.append('Timestamp', new Date().toLocaleString());
+                
+                console.log('Submitting data:', {name, classValue, message});
+                
+                fetch(googleAppsScriptURL, {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(response => {
+                    console.log('Response status:', response.status);
+                    
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+                    return response.text(); // Changed from .json() to .text()
+                })
+                .then(data => {
+                    console.log('Response data:', data);
+                    
+                    // Parse the JSON response
+                    const parsedData = JSON.parse(data);
+                    
+                    if (parsedData.status === 'success') {
+                        alert(`Thank you, ${name}! Your registration has been recorded.`);
+                        contactForm.reset();
+                    } else {
+                        throw new Error(parsedData.message || 'Submission failed');
+                    }
+                })
+                .catch(error => {
+                    console.error('Submission error:', error);
+                    
+                    let errorMessage = 'There was an error submitting your registration. ';
+                    
+                    if (error.message.includes('404')) {
+                        errorMessage += 'The submission URL is not found. Please check the Google Apps Script deployment.';
+                    } else if (error.message.includes('400')) {
+                        errorMessage += 'Bad request - there may be an issue with the data format.';
+                    } else if (error.message.includes('403')) {
+                        errorMessage += 'Permission denied - please check the Google Apps Script permissions.';
+                    } else if (error.message.includes('Failed to fetch')) {
+                        errorMessage += 'Network error - please check your internet connection.';
+                    } else {
+                        errorMessage += 'Please try again or contact support.';
+                    }
+                    
+                    alert(errorMessage);
+                })
+                .finally(() => {
+                    // Re-enable submit button
+                    submitButton.textContent = originalText;
+                    submitButton.disabled = false;
+                });
+            } else {
+                alert('Please fill in all fields.');
+            }
+        });
     }
     
-    .text-content h2 {
-        font-size: 2.5rem;
+    // Smooth scrolling for navigation links (only if navigation exists)
+    const navLinks = document.querySelectorAll('nav a[href^="#"]');
+    
+    if (navLinks.length > 0) {
+        navLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+                
+                if (targetElement) {
+                    const headerHeight = header ? header.offsetHeight : 0;
+                    const elementPosition = targetElement.offsetTop - headerHeight;
+                    
+                    window.scrollTo({
+                        top: elementPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
     }
     
-    .text-content p {
-        font-size: 1.1rem;
-    }
+    // Handle window resize AND orientation changes
+    let resizeTimeout;
+    window.addEventListener('resize', function() {
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(function() {
+            console.log('Window resized/orientation changed, reinitializing carousels...');
+            optimizeVideoForDevice();
+            initPhotoCarousels();
+        }, 500);
+    });
     
-    .hero-content h1 {
-        font-size: 4rem;
+    // Touch-friendly interactions
+    if ('ontouchstart' in window) {
+        document.body.classList.add('touch-device');
     }
-}
-
-/* Mobile responsive - keep centered layout */
-@media (max-width: 768px) {
-    .content-section {
-        margin: 4rem auto;
-        padding: 0 1rem;
-    }
-    
-    .content-wrapper {
-        gap: 2rem;
-    }
-    
-    .media-content {
-        width: 85%; /* Slightly smaller on tablets */
-        max-width: 400px;
-    }
-    
-    .text-content h2 {
-        font-size: 2rem;
-    }
-    
-    .text-content p {
-        font-size: 1rem;
-    }
-    
-    .hero-content h1 {
-        font-size: 3rem;
-        margin-top: 50px;
-    }
-    
-    .hero-content {
-        margin-top: 50px;
-    }
-    
-    .event-section {
-        margin: 4rem auto;
-        padding: 2rem 1rem;
-    }
-    
-    .event-container h2 {
-        font-size: 2.5rem;
-        margin-bottom: 2rem;
-    }
-    
-    .event-info {
-        display: flex !important; /* Force flex layout on mobile */
-        flex-direction: column;
-        align-items: center;
-        gap: 2rem;
-        margin-bottom: 3rem;
-    }
-    
-    .event-item {
-        padding: 1.5rem;
-        width: 100%;
-        max-width: 300px; /* Limit width but keep centered */
-    }
-    
-    .event-icon {
-        font-size: 2.5rem;
-    }
-    
-    .event-content h3 {
-        font-size: 1.3rem;
-    }
-    
-    .event-content p {
-        font-size: 1rem;
-    }
-    
-    .event-description {
-        padding: 1.5rem;
-    }
-    
-    .event-description p {
-        font-size: 1.1rem;
-    }
-    
-    .input-group.left,
-    .input-group.right {
-        padding-left: 0;
-        padding-right: 0;
-        text-align: center;
-    }
-    
-    .contact-section {
-        margin: 3rem 1rem;
-        padding: 2rem;
-    }
-    
-    .alternating-form input,
-    .alternating-form textarea {
-        font-size: 1rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .content-section {
-        margin: 3rem auto;
-        padding: 0 0.5rem;
-    }
-    
-    .media-content {
-        width: 95%; /* Nearly full width on small phones */
-        max-width: 350px;
-    }
-    
-    .text-content h2 {
-        font-size: 1.8rem;
-    }
-    
-    .hero-content h1 {
-        font-size: 2rem;
-        letter-spacing: 1.5px;
-    }
-    
-    .hero-content p {
-        font-size: 1rem;
-        letter-spacing: 1.5px;
-    }
-    
-    .event-container h2 {
-        font-size: 2rem;
-    }
-    
-    .event-item {
-        padding: 1rem;
-    }
-    
-    .event-icon {
-        font-size: 2rem;
-    }
-    
-    .event-content h3 {
-        font-size: 1.2rem;
-    }
-    
-    .event-description p {
-        font-size: 1rem;
-    }
-    
-    .input-group {
-        margin: 2rem 0;
-    }
-    
-    .button-container {
-        margin-top: 3rem;
-    }
-    
-    .alternating-form button {
-        padding: 0.8rem 2rem;
-        font-size: 1rem;
-    }
-}
-
-/* Additional responsive breakpoint for medium screens */
-@media (max-width: 1200px) and (min-width: 969px) {
-    .content-section {
-        max-width: 100%;
-        padding: 0 3rem;
-    }
-    
-    .media-content {
-        max-width: 450px;
-        height: 350px;
-    }
-    
-    .text-content {
-        max-width: 450px;
-    }
-    
-    .content-wrapper {
-        gap: 3rem;
-    }
-}
-
-/* Remove all orientation-specific media queries */
-/* Now the aspect ratio handles everything automatically */
-
-/* Mobile screens - consistent shape */
-@media (max-width: 480px) {
-    .media-content {
-        height: 180px !important; /* Shorter for mobile but still landscape shape */
-        min-height: 150px !important;
-    }
-}
-
-/* High-resolution displays */
-@media (min-width: 1400px) {
-    nav, 
-    .text-section,
-    .content-section,
-    .event-section,
-    .contact-section {
-        max-width: 1400px;
-    }
-    
-    .hero-content h1 {
-        font-size: 8rem;
-    }
-    
-    .hero-content p {
-        font-size: 1.4rem;
-    }
-}
-
-/* Reduced motion preferences */
-@media (prefers-reduced-motion: reduce) {
-    .hero-content h1,
-    .hero-content p,
-    .hero-button {
-        animation: none;
-    }
-    
-    .hero-button:hover,
-    .alternating-form button:hover {
-        transform: none;
-    }
-}
+});
+    </script>
+</body>
+</html>

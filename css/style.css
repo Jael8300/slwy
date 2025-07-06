@@ -60,6 +60,7 @@ nav a:hover {
 /* Hero Video Section */
 .hero-section {
     position: relative;
+    width: 100vw; /* Always full viewport width */
     height: 100vh;
     min-height: 500px;
     overflow: hidden;
@@ -68,22 +69,30 @@ nav a:hover {
     justify-content: center;
     margin: 0;
     padding: 0;
+    left: 50%; /* Center the section */
+    transform: translateX(-50%); /* Perfect centering */
+    margin-left: 0;
+    margin-right: 0;
 }
 
 .video-container {
     position: relative;
-    width: 100%;
-    height: 100%;
+    width: 100vw; /* Full viewport width */
+    height: 100vh; /* Full viewport height */
+    overflow: hidden; /* Hide any overflow */
 }
 
 #heroVideo {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    width: 100vw; /* Always fill viewport width */
+    height: 100vh; /* Always fill viewport height */
+    object-fit: cover; /* Cover the entire area, cropping if needed */
+    object-position: center; /* Keep video centered when cropping */
     position: absolute;
     top: 0;
     left: 0;
     filter: none;
+    min-width: 100%; /* Ensure minimum width coverage */
+    min-height: 100%; /* Ensure minimum height coverage */
 }
 
 .video-overlay {
@@ -223,6 +232,24 @@ main {
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 3rem;
     margin-bottom: 4rem;
+    justify-items: center; /* Center items within their grid cells */
+    place-items: center; /* Center items both horizontally and vertically */
+}
+
+/* Alternative layout for better centering on uneven rows */
+@media (max-width: 900px) {
+    .event-info {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center; /* Center all items */
+        align-items: flex-start;
+        gap: 3rem;
+    }
+    
+    .event-item {
+        flex: 0 0 auto; /* Don't grow or shrink */
+        width: 200px; /* Fixed width for consistency */
+    }
 }
 
 .event-item {
@@ -332,16 +359,29 @@ section#chill .content-wrapper {
     color: #555;
 }
 
-/* Media content styling */
+/* Media content styling - FIXED ASPECT RATIO */
 .media-content {
     flex: 1;
-    max-width: 500px;
-    height: 400px;
+    width: 100%;
+    max-width: 600px;
+    /* Use aspect ratio instead of fixed height */
+    aspect-ratio: 2 / 1; /* 2:1 landscape ratio */
     position: relative;
     overflow: hidden;
     border-radius: 8px;
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
     background: #f0f0f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Fallback for browsers that don't support aspect-ratio */
+@supports not (aspect-ratio: 2 / 1) {
+    .media-content {
+        height: 300px;
+        min-height: 250px;
+    }
 }
 
 /* Video styling */
@@ -359,6 +399,7 @@ section#chill .content-wrapper {
     position: relative;
     border-radius: 8px;
     overflow: hidden;
+    background: #f0f0f0;
 }
 
 .photo-slide {
@@ -369,10 +410,15 @@ section#chill .content-wrapper {
     height: 100%;
     opacity: 0;
     transition: opacity 1s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f0f0f0;
 }
 
 .photo-slide.active {
-    opacity: 1;
+    opacity: 1 !important;
+    z-index: 5;
 }
 
 .photo-slide img {
@@ -380,6 +426,22 @@ section#chill .content-wrapper {
     height: 100%;
     object-fit: cover;
     border-radius: 8px;
+    display: block;
+    /* Add fallback for broken images */
+    background: linear-gradient(45deg, #f1cb32, #2c3e50);
+}
+
+/* Fallback styling for images that fail to load */
+.photo-slide img:before {
+    content: "Image Loading...";
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, #f1cb32, #2c3e50);
+    color: white;
+    text-align: center;
+    line-height: 200px;
+    font-family: 'Noto Serif', serif;
 }
 
 /* Contact section */
@@ -508,7 +570,7 @@ footer p {
     font-weight: 100;
 }
 
-/* Mobile responsive design */
+/* Mobile responsive design - CONSISTENT SCALING */
 @media (max-width: 968px) {
     /* Override alternating layout on mobile - stack vertically */
     section#music .content-wrapper,
@@ -521,11 +583,14 @@ footer p {
     
     .text-content {
         max-width: 100%;
+        order: 1; /* Text appears first on mobile */
     }
     
     .media-content {
-        max-width: 100%;
-        height: 300px;
+        width: 90%; /* Scale down on mobile */
+        max-width: 500px;
+        order: 2; /* Media appears second on mobile */
+        margin: 0 auto; /* Center the media */
     }
     
     .text-content h2 {
@@ -541,6 +606,7 @@ footer p {
     }
 }
 
+/* Mobile responsive - keep centered layout */
 @media (max-width: 768px) {
     .content-section {
         margin: 4rem auto;
@@ -552,7 +618,8 @@ footer p {
     }
     
     .media-content {
-        height: 250px;
+        width: 85%; /* Slightly smaller on tablets */
+        max-width: 400px;
     }
     
     .text-content h2 {
@@ -583,13 +650,17 @@ footer p {
     }
     
     .event-info {
-        grid-template-columns: 1fr;
+        display: flex !important; /* Force flex layout on mobile */
+        flex-direction: column;
+        align-items: center;
         gap: 2rem;
         margin-bottom: 3rem;
     }
     
     .event-item {
         padding: 1.5rem;
+        width: 100%;
+        max-width: 300px; /* Limit width but keep centered */
     }
     
     .event-icon {
@@ -633,10 +704,12 @@ footer p {
 @media (max-width: 480px) {
     .content-section {
         margin: 3rem auto;
+        padding: 0 0.5rem;
     }
     
     .media-content {
-        height: 200px;
+        width: 95%; /* Nearly full width on small phones */
+        max-width: 350px;
     }
     
     .text-content h2 {
@@ -684,6 +757,38 @@ footer p {
     .alternating-form button {
         padding: 0.8rem 2rem;
         font-size: 1rem;
+    }
+}
+
+/* Additional responsive breakpoint for medium screens */
+@media (max-width: 1200px) and (min-width: 969px) {
+    .content-section {
+        max-width: 100%;
+        padding: 0 3rem;
+    }
+    
+    .media-content {
+        max-width: 450px;
+        height: 350px;
+    }
+    
+    .text-content {
+        max-width: 450px;
+    }
+    
+    .content-wrapper {
+        gap: 3rem;
+    }
+}
+
+/* Remove all orientation-specific media queries */
+/* Now the aspect ratio handles everything automatically */
+
+/* Mobile screens - consistent shape */
+@media (max-width: 480px) {
+    .media-content {
+        height: 180px !important; /* Shorter for mobile but still landscape shape */
+        min-height: 150px !important;
     }
 }
 

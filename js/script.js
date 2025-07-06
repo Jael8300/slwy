@@ -1,5 +1,6 @@
 // Wait for the DOM to be fully loaded
 document.addEventListener('DOMContentLoaded', function() {
+    console.log('DOM loaded, initializing carousels...');
     
     // Get elements
     const clickButton = document.getElementById('clickMe');
@@ -7,30 +8,54 @@ document.addEventListener('DOMContentLoaded', function() {
     const heroVideo = document.getElementById('heroVideo');
     const header = document.querySelector('header');
     
-    // Photo carousel functionality for music section
-    function initPhotoCarousel() {
-        const slides = document.querySelectorAll('.photo-slide');
-        let currentSlide = 0;
+    // Photo carousel functionality - handles multiple carousels
+    function initPhotoCarousels() {
+        // Find all photo carousels on the page
+        const carousels = document.querySelectorAll('.photo-carousel');
+        console.log(`Found ${carousels.length} carousels`);
         
-        function showNextSlide() {
-            // Remove active class from current slide
-            slides[currentSlide].classList.remove('active');
+        carousels.forEach((carousel, carouselIndex) => {
+            const slides = carousel.querySelectorAll('.photo-slide');
+            console.log(`Carousel ${carouselIndex + 1} has ${slides.length} slides`);
             
-            // Move to next slide
-            currentSlide = (currentSlide + 1) % slides.length;
+            let currentSlide = 0;
             
-            // Add active class to new slide
-            slides[currentSlide].classList.add('active');
-        }
-        
-        // Change slide every 3 seconds
-        if (slides.length > 0) {
-            setInterval(showNextSlide, 3000);
-        }
+            // Only initialize carousel if there are slides
+            if (slides.length > 0) {
+                // Clear any existing intervals for this carousel
+                if (carousel.intervalId) {
+                    clearInterval(carousel.intervalId);
+                }
+                
+                // Make sure first slide is active
+                slides.forEach(slide => slide.classList.remove('active'));
+                slides[0].classList.add('active');
+                
+                function showNextSlide() {
+                    console.log(`Carousel ${carouselIndex + 1}: showing slide ${currentSlide} -> ${(currentSlide + 1) % slides.length}`);
+                    
+                    // Remove active class from current slide
+                    slides[currentSlide].classList.remove('active');
+                    
+                    // Move to next slide
+                    currentSlide = (currentSlide + 1) % slides.length;
+                    
+                    // Add active class to new slide
+                    slides[currentSlide].classList.add('active');
+                }
+                
+                // Change slide every 2 seconds (faster for testing)
+                carousel.intervalId = setInterval(showNextSlide, 2000);
+                
+                console.log(`Carousel ${carouselIndex + 1} initialized with ${slides.length} slides`);
+            } else {
+                console.error(`Carousel ${carouselIndex + 1} has no slides!`);
+            }
+        });
     }
     
-    // Initialize carousel
-    initPhotoCarousel();
+    // Initialize carousels
+    initPhotoCarousels();
     
     // Video optimization for mobile
     function optimizeVideoForDevice() {
@@ -38,14 +63,14 @@ document.addEventListener('DOMContentLoaded', function() {
         
         videos.forEach(video => {
             if (window.innerWidth <= 768) {
-                video.style.filter = 'brightness(0.9)';
+                // Remove any existing filters on mobile if needed
             }
             
             // Pause video if not visible (performance optimization)
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
-                        video.play();
+                        video.play().catch(e => console.log('Video play failed:', e));
                     } else {
                         video.pause();
                     }
@@ -59,27 +84,31 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize video optimizations
     optimizeVideoForDevice();
     
-    // Header background change on scroll
-    window.addEventListener('scroll', function() {
-        if (window.scrollY > 100) {
-            header.style.backgroundColor = 'rgba(44, 62, 80, 0.95)';
-        } else {
-            header.style.backgroundColor = 'rgba(44, 62, 80, 0.7)';
-        }
-    });
+    // Header background change on scroll (only if header exists)
+    if (header) {
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 100) {
+                header.style.backgroundColor = 'rgba(44, 62, 80, 0.95)';
+            } else {
+                header.style.backgroundColor = 'rgba(44, 62, 80, 0.7)';
+            }
+        });
+    }
     
     // Button click event
-    clickButton.addEventListener('click', function() {
-        alert('Hello! You clicked the button!');
-        
-        if (clickButton.textContent === 'Get Started') {
-            clickButton.textContent = 'Thanks for clicking!';
-            clickButton.style.backgroundColor = '#27ae60';
-        } else {
-            clickButton.textContent = 'Get Started';
-            clickButton.style.backgroundColor = '#3498db';
-        }
-    });
+    if (clickButton) {
+        clickButton.addEventListener('click', function() {
+            alert('Hello! You clicked the button!');
+            
+            if (clickButton.textContent === 'Get Started') {
+                clickButton.textContent = 'Thanks for clicking!';
+                clickButton.style.backgroundColor = '#27ae60';
+            } else {
+                clickButton.textContent = 'Get Started';
+                clickButton.style.backgroundColor = '#f1cb32';
+            }
+        });
+    }
     
     // Form submission event
     if (contactForm) {
@@ -99,55 +128,39 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Smooth scrolling for navigation links
+    // Smooth scrolling for navigation links (only if navigation exists)
     const navLinks = document.querySelectorAll('nav a[href^="#"]');
     
-    navLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-            e.preventDefault();
-            
-            const targetId = this.getAttribute('href').substring(1);
-            const targetElement = document.getElementById(targetId);
-            
-            if (targetElement) {
-                const headerHeight = header.offsetHeight;
-                const elementPosition = targetElement.offsetTop - headerHeight;
+    if (navLinks.length > 0) {
+        navLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
                 
-                window.scrollTo({
-                    top: elementPosition,
-                    behavior: 'smooth'
-                });
-            }
+                const targetId = this.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+                
+                if (targetElement) {
+                    const headerHeight = header ? header.offsetHeight : 0;
+                    const elementPosition = targetElement.offsetTop - headerHeight;
+                    
+                    window.scrollTo({
+                        top: elementPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
         });
-    });
+    }
     
-    // Add animations when sections come into view
-    const sections = document.querySelectorAll('section:not(.hero-section)');
-    
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    };
-    
-    const observer = new IntersectionObserver(function(entries) {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
-            }
-        });
-    }, observerOptions);
-    
-    sections.forEach(section => {
-        section.style.opacity = '0';
-        section.style.transform = 'translateY(20px)';
-        section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-        observer.observe(section);
-    });
-    
-    // Handle window resize
+    // Handle window resize AND orientation changes
+    let resizeTimeout;
     window.addEventListener('resize', function() {
-        optimizeVideoForDevice();
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(function() {
+            console.log('Window resized/orientation changed, reinitializing carousels...');
+            optimizeVideoForDevice();
+            initPhotoCarousels(); // Reinitialize carousels on orientation change
+        }, 500);
     });
     
     // Touch-friendly interactions

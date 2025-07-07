@@ -9,13 +9,14 @@ body {
     font-family: 'Noto Serif', serif;
     line-height: 1.6;
     color: #333;
-    background-color: #fff7d2;
+    background-color: #ffebbf;
     font-weight: 300;
+    cursor: url('../images/cursor_5.png'), url('images/cursor_5.png'), pointer !important; /* Multiple paths to test */
 }
 
 /* Header styles */
 header {
-    background-color: rgba(44, 62, 80, 0.95);
+    background-color: rgba(44, 62, 80, 0.5);
     color: white;
     padding: 1rem 0;
     position: fixed;
@@ -24,6 +25,7 @@ header {
     z-index: 1000;
     backdrop-filter: blur(10px);
     transition: background-color 0.3s ease;
+    display: block; /* Show navigation */
 }
 
 nav {
@@ -40,6 +42,11 @@ nav h1 {
     font-weight: 200;
 }
 
+nav h1 a {
+    color: white;
+    text-decoration: none;
+}
+
 nav ul {
     display: flex;
     list-style: none;
@@ -51,16 +58,19 @@ nav a {
     text-decoration: none;
     transition: color 0.3s ease;
     font-weight: 200;
+    cursor: url('../images/cursor_7.png'), url('images/cursor_7.png'), pointer !important;
 }
 
-nav a:hover {
+nav a:hover,
+nav a.active {
     color: #f1cb32;
+    font-weight: 400;
 }
 
 /* Hero Video Section */
 .hero-section {
     position: relative;
-    width: 100vw; /* Always full viewport width */
+    width: 100vw;
     height: 100vh;
     min-height: 500px;
     overflow: hidden;
@@ -69,30 +79,30 @@ nav a:hover {
     justify-content: center;
     margin: 0;
     padding: 0;
-    left: 50%; /* Center the section */
-    transform: translateX(-50%); /* Perfect centering */
+    left: 50%;
+    transform: translateX(-50%);
     margin-left: 0;
     margin-right: 0;
 }
 
 .video-container {
     position: relative;
-    width: 100vw; /* Full viewport width */
-    height: 100vh; /* Full viewport height */
-    overflow: hidden; /* Hide any overflow */
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
 }
 
 #heroVideo {
-    width: 100vw; /* Always fill viewport width */
-    height: 100vh; /* Always fill viewport height */
-    object-fit: cover; /* Cover the entire area, cropping if needed */
-    object-position: center; /* Keep video centered when cropping */
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    object-position: center;
     position: absolute;
     top: 0;
     left: 0;
     filter: none;
-    min-width: 100%; /* Ensure minimum width coverage */
-    min-height: 100%; /* Ensure minimum height coverage */
+    min-width: 100%;
+    min-height: 100%;
 }
 
 .video-overlay {
@@ -139,28 +149,6 @@ nav a:hover {
     letter-spacing: 2.5px;
 }
 
-.hero-button {
-    background-color: #f1cb32;
-    color: #2c3e50;
-    border: none;
-    padding: 1rem 2rem;
-    border-radius: 50px;
-    cursor: pointer;
-    font-size: 1.1rem;
-    transition: all 0.3s ease;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    animation: fadeInUp 1s ease-out 0.6s both;
-    font-weight: 200;
-}
-
-.hero-button:hover {
-    background-color: #2c3e50;
-    color: #f1cb32;
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-}
-
 /* Animation keyframes */
 @keyframes fadeInUp {
     from {
@@ -180,7 +168,38 @@ main {
     padding: 0;
 }
 
-/* Text sections - no background, centered */
+/* Page content with header offset */
+.page-content {
+    margin-top: 80px;
+}
+
+/* Consistent page headers */
+.page-header {
+    text-align: center;
+    max-width: 800px;
+    margin: 4rem auto;
+    padding: 2rem;
+}
+
+.page-header h1 {
+    font-size: 4rem;
+    color: #2c3e50;
+    margin-bottom: 2rem;
+    letter-spacing: 2px;
+    font-family: 'Noto Serif', serif;
+    font-weight: 200;
+}
+
+.page-header p {
+    font-size: 1.3rem;
+    color: #555;
+    max-width: 700px;
+    margin: 0 auto;
+    font-family: 'Noto Serif', serif;
+    font-weight: 100;
+}
+
+/* Text sections - consistent styling */
 .text-section {
     text-align: center;
     max-width: 800px;
@@ -210,7 +229,12 @@ main {
     font-family: 'Noto Serif', serif;
 }
 
-/* Event Details Section */
+/* Multiple paragraphs in text sections */
+.text-section p + p {
+    margin-top: 2rem;
+}
+
+/* Event Details Section - consistent with other sections */
 .event-section {
     margin: 6rem auto;
     max-width: 1000px;
@@ -221,7 +245,7 @@ main {
 .event-container h2 {
     font-family: 'Noto Serif', serif;
     font-weight: 200;
-    font-size: 3rem;
+    font-size: 2.5rem; /* Made consistent with other h2s */
     color: #2c3e50;
     margin-bottom: 3rem;
     letter-spacing: 1px;
@@ -232,23 +256,22 @@ main {
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 3rem;
     margin-bottom: 4rem;
-    justify-items: center; /* Center items within their grid cells */
-    place-items: center; /* Center items both horizontally and vertically */
+    justify-items: center;
+    place-items: center;
 }
 
-/* Alternative layout for better centering on uneven rows */
 @media (max-width: 900px) {
     .event-info {
-        display: flex;
+        display: flex !important;
         flex-wrap: wrap;
-        justify-content: center; /* Center all items */
+        justify-content: center;
         align-items: flex-start;
         gap: 3rem;
     }
     
     .event-item {
-        flex: 0 0 auto; /* Don't grow or shrink */
-        width: 200px; /* Fixed width for consistency */
+        flex: 0 0 auto;
+        width: 200px;
     }
 }
 
@@ -266,21 +289,34 @@ main {
     transform: translateY(-5px);
 }
 
+/* Event card styling */
+.event-card {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    padding: 2rem;
+}
+
+.event-date {
+    color: #999;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    font-family: 'Noto Serif', serif;
+    font-weight: 100;
+}
+
 .event-icon {
     font-size: 3rem;
     margin-bottom: 1rem;
-    color: #2c3e50; /* Primary color */
+    color: #2c3e50;
     transition: all 0.3s ease;
 }
 
-/* Style the Sharp Duotone icons */
 .event-icon i {
-    --fa-primary-color: #f1cb32; /* Primary layer - your yellow */
-    --fa-secondary-color: #2c3e50; /* Secondary layer - your dark blue */
-    --fa-secondary-opacity: 0.3; /* Make secondary layer translucent */
+    --fa-primary-color: #f1cb32;
+    --fa-secondary-color: #2c3e50;
+    --fa-secondary-opacity: 0.3;
 }
 
-/* Hover effect for icons */
 .event-item:hover .event-icon i {
     --fa-primary-color: #2c3e50;
     --fa-secondary-color: #f1cb32;
@@ -325,7 +361,7 @@ main {
     font-style: italic;
 }
 
-/* FIXED: Content sections with alternating layouts */
+/* Content sections with alternating layouts */
 .content-section {
     margin: 6rem auto;
     max-width: 1200px;
@@ -339,20 +375,18 @@ main {
     min-height: 400px;
 }
 
-/* SPECIFIC selectors for alternating layout */
 section#music .content-wrapper {
-    flex-direction: row; /* Text LEFT, Media RIGHT */
+    flex-direction: row;
 }
 
 section#food .content-wrapper {
-    flex-direction: row-reverse; /* Media LEFT, Text RIGHT */
+    flex-direction: row-reverse;
 }
 
 section#chill .content-wrapper {
-    flex-direction: row; /* Text LEFT, Media RIGHT */
+    flex-direction: row;
 }
 
-/* Text content styling */
 .text-content {
     flex: 1;
     max-width: 500px;
@@ -361,7 +395,7 @@ section#chill .content-wrapper {
 .text-content h2 {
     font-family: 'Noto Serif', serif;
     font-weight: 200;
-    font-size: 3rem;
+    font-size: 2.5rem; /* Made consistent */
     color: #2c3e50;
     margin-bottom: 1.5rem;
     letter-spacing: 1px;
@@ -375,13 +409,11 @@ section#chill .content-wrapper {
     color: #555;
 }
 
-/* Media content styling - FIXED ASPECT RATIO */
 .media-content {
     flex: 1;
     width: 100%;
     max-width: 600px;
-    /* Use aspect ratio instead of fixed height */
-    aspect-ratio: 2 / 1; /* 2:1 landscape ratio */
+    aspect-ratio: 2 / 1;
     position: relative;
     overflow: hidden;
     border-radius: 8px;
@@ -392,7 +424,6 @@ section#chill .content-wrapper {
     justify-content: center;
 }
 
-/* Fallback for browsers that don't support aspect-ratio */
 @supports not (aspect-ratio: 2 / 1) {
     .media-content {
         height: 300px;
@@ -400,7 +431,6 @@ section#chill .content-wrapper {
     }
 }
 
-/* Video styling */
 .media-content video {
     width: 100%;
     height: 100%;
@@ -408,7 +438,6 @@ section#chill .content-wrapper {
     border-radius: 8px;
 }
 
-/* Photo carousel for music and food sections */
 .photo-carousel {
     width: 100%;
     height: 100%;
@@ -443,21 +472,86 @@ section#chill .content-wrapper {
     object-fit: cover;
     border-radius: 8px;
     display: block;
-    /* Add fallback for broken images */
     background: linear-gradient(45deg, #f1cb32, #2c3e50);
 }
 
-/* Fallback styling for images that fail to load */
-.photo-slide img:before {
-    content: "Image Loading...";
-    display: block;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(45deg, #f1cb32, #2c3e50);
+/* Gradient placeholders */
+.gradient-placeholder {
+    background: linear-gradient(135deg, #f1cb32, #2c3e50);
+    display: flex;
+    align-items: center;
+    justify-content: center;
     color: white;
+    font-size: 1.2rem;
     text-align: center;
-    line-height: 200px;
+    padding: 2rem;
+    border-radius: 8px;
+}
+
+.gradient-placeholder i {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.gradient-placeholder p {
+    margin: 0;
     font-family: 'Noto Serif', serif;
+    font-weight: 200;
+}
+
+/* Buttons - consistent styling */
+.btn {
+    background: #f1cb32;
+    color: #2c3e50;
+    padding: 1rem 2rem;
+    text-decoration: none;
+    border-radius: 50px;
+    font-family: 'Noto Serif', serif;
+    font-weight: 200;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    display: inline-block;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.btn, button {
+    cursor: url('../images/cursor_7.png'), url('images/cursor_7.png'), pointer !important;
+}
+
+.btn:hover {
+    background: #2c3e50;
+    color: #f1cb32;
+    transform: translateY(-2px);
+}
+
+.btn-outline {
+    background: transparent;
+    border: 2px solid #2c3e50;
+    color: #2c3e50;
+}
+
+.btn-outline:hover {
+    background: #2c3e50;
+    color: #f1cb32;
+}
+
+/* Special sections */
+.highlight-section {
+    background: rgba(241, 203, 50, 0.1);
+    border-radius: 8px;
+    padding: 3rem;
+    margin: 4rem auto;
+}
+
+.subtle-section {
+    background: rgba(44, 62, 80, 0.05);
+    border-radius: 8px;
+    padding: 3rem;
+    margin: 4rem auto;
 }
 
 /* Contact section */
@@ -487,7 +581,6 @@ section#chill .content-wrapper {
     font-size: 1.2rem;
 }
 
-/* Alternating form styles */
 .alternating-form {
     display: block;
     width: 100%;
@@ -510,7 +603,6 @@ section#chill .content-wrapper {
     padding-right: 0;
 }
 
-/* Input and textarea styles */
 .alternating-form input,
 .alternating-form textarea {
     background: transparent;
@@ -544,31 +636,33 @@ section#chill .content-wrapper {
     resize: vertical;
 }
 
-/* Button container */
 .button-container {
     text-align: center;
     margin-top: 4rem;
 }
 
-/* Button styling */
-.alternating-form button {
-    background: transparent;
-    border: 2px solid #2c3e50;
-    color: #2c3e50;
-    padding: 1rem 3rem;
-    font-size: 1.1rem;
-    font-family: 'Noto Serif', serif;
-    font-weight: 200;
-    letter-spacing: 1px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    text-transform: uppercase;
+/* Simple forms */
+.simple-form {
+    max-width: 400px;
+    margin: 2rem auto;
 }
 
-.alternating-form button:hover {
-    background: #2c3e50;
-    color: #f1cb32;
-    transform: translateY(-2px);
+.simple-form input {
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid #ddd;
+    padding: 1rem 0;
+    font-size: 1.1rem;
+    width: 100%;
+    font-family: 'Noto Serif', serif;
+    color: #333;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.simple-form input:focus {
+    outline: none;
+    border-bottom-color: #f1cb32;
 }
 
 /* Footer */
@@ -586,9 +680,8 @@ footer p {
     font-weight: 100;
 }
 
-/* Mobile responsive design - CONSISTENT SCALING */
+/* Mobile responsive design */
 @media (max-width: 968px) {
-    /* Override alternating layout on mobile - stack vertically */
     section#music .content-wrapper,
     section#food .content-wrapper,
     section#chill .content-wrapper {
@@ -599,14 +692,14 @@ footer p {
     
     .text-content {
         max-width: 100%;
-        order: 1; /* Text appears first on mobile */
+        order: 1;
     }
     
     .media-content {
-        width: 90%; /* Scale down on mobile */
+        width: 90%;
         max-width: 500px;
-        order: 2; /* Media appears second on mobile */
-        margin: 0 auto; /* Center the media */
+        order: 2;
+        margin: 0 auto;
     }
     
     .text-content h2 {
@@ -620,9 +713,12 @@ footer p {
     .hero-content h1 {
         font-size: 4rem;
     }
+    
+    .page-header h1 {
+        font-size: 3rem;
+    }
 }
 
-/* Mobile responsive - keep centered layout */
 @media (max-width: 768px) {
     .content-section {
         margin: 4rem auto;
@@ -634,7 +730,7 @@ footer p {
     }
     
     .media-content {
-        width: 85%; /* Slightly smaller on tablets */
+        width: 85%;
         max-width: 400px;
     }
     
@@ -655,6 +751,10 @@ footer p {
         margin-top: 50px;
     }
     
+    .page-header h1 {
+        font-size: 2.5rem;
+    }
+    
     .event-section {
         margin: 4rem auto;
         padding: 2rem 1rem;
@@ -666,7 +766,7 @@ footer p {
     }
     
     .event-info {
-        display: flex !important; /* Force flex layout on mobile */
+        display: flex !important;
         flex-direction: column;
         align-items: center;
         gap: 2rem;
@@ -676,7 +776,7 @@ footer p {
     .event-item {
         padding: 1.5rem;
         width: 100%;
-        max-width: 300px; /* Limit width but keep centered */
+        max-width: 300px;
     }
     
     .event-icon {
@@ -724,8 +824,10 @@ footer p {
     }
     
     .media-content {
-        width: 95%; /* Nearly full width on small phones */
+        width: 95%;
         max-width: 350px;
+        height: 180px !important;
+        min-height: 150px !important;
     }
     
     .text-content h2 {
@@ -740,6 +842,10 @@ footer p {
     .hero-content p {
         font-size: 1rem;
         letter-spacing: 1.5px;
+    }
+    
+    .page-header h1 {
+        font-size: 2rem;
     }
     
     .event-container h2 {
@@ -770,13 +876,12 @@ footer p {
         margin-top: 3rem;
     }
     
-    .alternating-form button {
+    .btn {
         padding: 0.8rem 2rem;
         font-size: 1rem;
     }
 }
 
-/* Additional responsive breakpoint for medium screens */
 @media (max-width: 1200px) and (min-width: 969px) {
     .content-section {
         max-width: 100%;
@@ -797,18 +902,6 @@ footer p {
     }
 }
 
-/* Remove all orientation-specific media queries */
-/* Now the aspect ratio handles everything automatically */
-
-/* Mobile screens - consistent shape */
-@media (max-width: 480px) {
-    .media-content {
-        height: 180px !important; /* Shorter for mobile but still landscape shape */
-        min-height: 150px !important;
-    }
-}
-
-/* High-resolution displays */
 @media (min-width: 1400px) {
     nav, 
     .text-section,
@@ -827,16 +920,13 @@ footer p {
     }
 }
 
-/* Reduced motion preferences */
 @media (prefers-reduced-motion: reduce) {
     .hero-content h1,
-    .hero-content p,
-    .hero-button {
+    .hero-content p {
         animation: none;
     }
     
-    .hero-button:hover,
-    .alternating-form button:hover {
+    .btn:hover {
         transform: none;
     }
 }

@@ -9,6 +9,17 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+    <header>
+        <nav>
+            <h1><a href="index.html">slwy</a></h1>
+            <ul>
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="events.html">Events</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
 
     <main>
         <!-- Hero Video Section -->
@@ -23,7 +34,6 @@
                     <div class="hero-content">
                         <h1>slwy</h1>
                         <p>appreciating the little things</p>
-                        <!-- <button id="clickMe" class="hero-button">Get Started</button> -->
                     </div>
                 </div>
             </div>
@@ -150,7 +160,7 @@
                     <input type="text" id="name" placeholder="Your Name" required>
                 </div>
                 <div class="input-group right">
-                    <input type="class" id="class" placeholder="Your Class" required>
+                    <input type="text" id="class" placeholder="Your Class" required>
                 </div>
                 <div class="input-group left">
                     <textarea id="message" placeholder="Your Message" required></textarea>
@@ -239,15 +249,16 @@ document.addEventListener('DOMContentLoaded', function() {
     // Header background change on scroll (only if header exists)
     if (header) {
         window.addEventListener('scroll', function() {
-            if (window.scrollY > 100) {
+            if (window.scrollY > 150) {
+                //header.style.backgroundColor = 'rgba(44, 62, 80, 0.95)';
                 header.style.backgroundColor = 'rgba(44, 62, 80, 0.95)';
             } else {
-                header.style.backgroundColor = 'rgba(44, 62, 80, 0.7)';
+                header.style.backgroundColor = 'rgba(44, 62, 80, 0.001)';
             }
         });
     }
     
-     // Form submission to Google Sheets
+    // Form submission to Google Sheets
     if (contactForm) {
         contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
@@ -264,7 +275,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 submitButton.disabled = true;
                 
                 // 🔴 REPLACE THIS URL WITH YOUR GOOGLE APPS SCRIPT URL 🔴
-                const googleAppsScriptURL = 'https://script.google.com/macros/s/AKfycbzBCDXB1eYydwmks1-WnarvZVRsyKhNRhgcUd3B1TRvrGmIsS1K_nB73OZdF6WEYrRC/exec';
+                const googleAppsScriptURL = 'YOUR_WEB_APP_URL_HERE';
                 
                 // Prepare data as FormData (same as your working test)
                 const formData = new FormData();

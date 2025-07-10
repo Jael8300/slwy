@@ -9,19 +9,8 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-<!--     <header>
-        <nav>
-            <h1><a href="index.html">slwy</a></h1>
-            <ul>
-                <li><a href="index.html" class="active">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="events.html">Events</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header> -->
     <audio id="music" loop>
-        <source src="music.m4a" type="audio/mp4">
+        <source src="music.wav" type="audio/wav">
     </audio>
 
     <script>
@@ -29,7 +18,6 @@
             document.getElementById('music').play();
         }, { once: true });
     </script>
-
     <main>
         <!-- Hero Video Section -->
         <section id="hero-video" class="hero-section">
@@ -96,7 +84,7 @@
         </section>
 
         <!-- Music Section - Left aligned with rotating photos -->
-        <section id="music" class="content-section left-aligned">
+        <section id="music" class="content-section">
             <div class="content-wrapper">
                 <div class="text-content">
                     <h2>Music</h2>
@@ -122,7 +110,7 @@
         </section>
 
         <!-- Food Section - Right aligned with rotating photos -->
-        <section id="food" class="content-section right-aligned">
+        <section id="food" class="content-section">
             <div class="content-wrapper">
                 <div class="media-content">
                     <div class="photo-carousel">
@@ -145,7 +133,7 @@
         </section>
 
         <!-- Chill Section - Left aligned with video -->
-        <section id="chill" class="content-section left-aligned">
+        <section id="chill" class="content-section">
             <div class="content-wrapper">
                 <div class="text-content">
                     <h2>Chill</h2>
@@ -163,19 +151,19 @@
 
         <section id="contact" class="contact-section">
             <h2>Registration</h2>
-            <p>Join us for a good time!</p>
+            <p>join us for a good time!</p>
             <form id="contactForm" class="alternating-form">
-                <div class="input-group left">
-                    <input type="text" id="name" placeholder="Your Name" required>
+                <div class="input-group">
+                    <input type="text" id="name" placeholder="your name" required>
                 </div>
-                <div class="input-group right">
-                    <input type="text" id="class" placeholder="Your Class" required>
+                <div class="input-group">
+                    <input type="text" id="class" placeholder="your class" required>
                 </div>
-                <div class="input-group left">
-                    <textarea id="message" placeholder="Your Message" required></textarea>
+                <div class="input-group">
+                    <textarea id="message" placeholder="your message" required></textarea>
                 </div>
                 <div class="button-container">
-                    <button type="submit">Send Message</button>
+                    <button type="submit">send message</button>
                 </div>
             </form>
         </section>
@@ -185,211 +173,178 @@
         <p>&copy; 2025 daybyday. All rights reserved.</p>
     </footer>
 
+    
     <script>
-// Wait for the DOM to be fully loaded
-document.addEventListener('DOMContentLoaded', function() {
-    console.log('DOM loaded, initializing carousels...');
-    
-    // Get elements
-    const contactForm = document.getElementById('contactForm');
-    const heroVideo = document.getElementById('heroVideo');
-    const header = document.querySelector('header');
-    
-    // Photo carousel functionality - handles multiple carousels
-    function initPhotoCarousels() {
-        const carousels = document.querySelectorAll('.photo-carousel');
-        console.log(`Found ${carousels.length} carousels`);
+    // Wait for the DOM to be fully loaded
+    document.addEventListener('DOMContentLoaded', function() {
+        console.log('DOM loaded, initializing carousels...');
         
-        carousels.forEach((carousel, carouselIndex) => {
-            const slides = carousel.querySelectorAll('.photo-slide');
-            console.log(`Carousel ${carouselIndex + 1} has ${slides.length} slides`);
-            
-            let currentSlide = 0;
-            
-            if (slides.length > 0) {
-                if (carousel.intervalId) {
-                    clearInterval(carousel.intervalId);
-                }
-                
-                slides.forEach(slide => slide.classList.remove('active'));
-                slides[0].classList.add('active');
-                
-                function showNextSlide() {
-                    console.log(`Carousel ${carouselIndex + 1}: showing slide ${currentSlide} -> ${(currentSlide + 1) % slides.length}`);
-                    
-                    slides[currentSlide].classList.remove('active');
-                    currentSlide = (currentSlide + 1) % slides.length;
-                    slides[currentSlide].classList.add('active');
-                }
-                
-                carousel.intervalId = setInterval(showNextSlide, 2000);
-                console.log(`Carousel ${carouselIndex + 1} initialized with ${slides.length} slides`);
-            } else {
-                console.error(`Carousel ${carouselIndex + 1} has no slides!`);
-            }
-        });
-    }
-    
-    // Initialize carousels
-    initPhotoCarousels();
-    
-    // Video optimization for mobile
-    function optimizeVideoForDevice() {
-        const videos = document.querySelectorAll('video');
+        // Get elements
+        const contactForm = document.getElementById('contactForm');
+        const heroVideo = document.getElementById('heroVideo');
         
-        videos.forEach(video => {
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        video.play().catch(e => console.log('Video play failed:', e));
-                    } else {
-                        video.pause();
+        // Photo carousel functionality - handles multiple carousels
+        function initPhotoCarousels() {
+            const carousels = document.querySelectorAll('.photo-carousel');
+            console.log(`Found ${carousels.length} carousels`);
+            
+            carousels.forEach((carousel, carouselIndex) => {
+                const slides = carousel.querySelectorAll('.photo-slide');
+                console.log(`Carousel ${carouselIndex + 1} has ${slides.length} slides`);
+                
+                let currentSlide = 0;
+                
+                if (slides.length > 0) {
+                    if (carousel.intervalId) {
+                        clearInterval(carousel.intervalId);
                     }
-                });
+                    
+                    slides.forEach(slide => slide.classList.remove('active'));
+                    slides[0].classList.add('active');
+                    
+                    function showNextSlide() {
+                        console.log(`Carousel ${carouselIndex + 1}: showing slide ${currentSlide} -> ${(currentSlide + 1) % slides.length}`);
+                        
+                        slides[currentSlide].classList.remove('active');
+                        currentSlide = (currentSlide + 1) % slides.length;
+                        slides[currentSlide].classList.add('active');
+                    }
+                    
+                    carousel.intervalId = setInterval(showNextSlide, 2000);
+                    console.log(`Carousel ${carouselIndex + 1} initialized with ${slides.length} slides`);
+                } else {
+                    console.error(`Carousel ${carouselIndex + 1} has no slides!`);
+                }
             });
+        }
+        
+        // Initialize carousels
+        initPhotoCarousels();
+        
+        // Video optimization for mobile
+        function optimizeVideoForDevice() {
+            const videos = document.querySelectorAll('video');
             
-            observer.observe(video);
-        });
-    }
-    
-    // Initialize video optimizations
-    optimizeVideoForDevice();
-    
-    // Header background change on scroll (only if header exists)
-    if (header) {
-        window.addEventListener('scroll', function() {
-            if (window.scrollY > 150) {
-                //header.style.backgroundColor = 'rgba(44, 62, 80, 0.95)';
-                header.style.backgroundColor = 'rgba(44, 62, 80, 0.95)';
-            } else {
-                header.style.backgroundColor = 'rgba(44, 62, 80, 0.001)';
-            }
-        });
-    }
-    
-    // Form submission to Google Sheets
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const name = document.getElementById('name').value;
-            const classValue = document.getElementById('class').value;
-            const message = document.getElementById('message').value;
-            
-            if (name && classValue && message) {
-                // Disable submit button to prevent double submission
-                const submitButton = contactForm.querySelector('button[type="submit"]');
-                const originalText = submitButton.textContent;
-                submitButton.textContent = 'Submitting...';
-                submitButton.disabled = true;
-                
-                // 🔴 REPLACE THIS URL WITH YOUR GOOGLE APPS SCRIPT URL 🔴
-                const googleAppsScriptURL = 'YOUR_WEB_APP_URL_HERE';
-                
-                // Prepare data as FormData (same as your working test)
-                const formData = new FormData();
-                formData.append('Name', name);
-                formData.append('Class', classValue);
-                formData.append('Message', message);
-                formData.append('Timestamp', new Date().toLocaleString());
-                
-                console.log('Submitting data:', {name, classValue, message});
-                
-                fetch(googleAppsScriptURL, {
-                    method: 'POST',
-                    body: formData
-                })
-                .then(response => {
-                    console.log('Response status:', response.status);
-                    
-                    if (!response.ok) {
-                        throw new Error(`HTTP error! status: ${response.status}`);
-                    }
-                    return response.text(); // Changed from .json() to .text()
-                })
-                .then(data => {
-                    console.log('Response data:', data);
-                    
-                    // Parse the JSON response
-                    const parsedData = JSON.parse(data);
-                    
-                    if (parsedData.status === 'success') {
-                        alert(`Thank you, ${name}! Your registration has been recorded.`);
-                        contactForm.reset();
-                    } else {
-                        throw new Error(parsedData.message || 'Submission failed');
-                    }
-                })
-                .catch(error => {
-                    console.error('Submission error:', error);
-                    
-                    let errorMessage = 'There was an error submitting your registration. ';
-                    
-                    if (error.message.includes('404')) {
-                        errorMessage += 'The submission URL is not found. Please check the Google Apps Script deployment.';
-                    } else if (error.message.includes('400')) {
-                        errorMessage += 'Bad request - there may be an issue with the data format.';
-                    } else if (error.message.includes('403')) {
-                        errorMessage += 'Permission denied - please check the Google Apps Script permissions.';
-                    } else if (error.message.includes('Failed to fetch')) {
-                        errorMessage += 'Network error - please check your internet connection.';
-                    } else {
-                        errorMessage += 'Please try again or contact support.';
-                    }
-                    
-                    alert(errorMessage);
-                })
-                .finally(() => {
-                    // Re-enable submit button
-                    submitButton.textContent = originalText;
-                    submitButton.disabled = false;
+            videos.forEach(video => {
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            video.play().catch(e => console.log('Video play failed:', e));
+                        } else {
+                            video.pause();
+                        }
+                    });
                 });
-            } else {
-                alert('Please fill in all fields.');
-            }
-        });
-    }
-    
-    // Smooth scrolling for navigation links (only if navigation exists)
-    const navLinks = document.querySelectorAll('nav a[href^="#"]');
-    
-    if (navLinks.length > 0) {
-        navLinks.forEach(link => {
-            link.addEventListener('click', function(e) {
+                
+                observer.observe(video);
+            });
+        }
+        
+        // Initialize video optimizations
+        optimizeVideoForDevice();
+        
+        // Form submission to Google Sheets
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(e) {
                 e.preventDefault();
                 
-                const targetId = this.getAttribute('href').substring(1);
-                const targetElement = document.getElementById(targetId);
+                const name = document.getElementById('name').value;
+                const classValue = document.getElementById('class').value;
+                const message = document.getElementById('message').value;
                 
-                if (targetElement) {
-                    const headerHeight = header ? header.offsetHeight : 0;
-                    const elementPosition = targetElement.offsetTop - headerHeight;
+                if (name && classValue && message) {
+                    // Disable submit button to prevent double submission
+                    const submitButton = contactForm.querySelector('button[type="submit"]');
+                    const originalText = submitButton.textContent;
+                    submitButton.textContent = 'Submitting...';
+                    submitButton.disabled = true;
                     
-                    window.scrollTo({
-                        top: elementPosition,
-                        behavior: 'smooth'
+                    // 🔴 REPLACE THIS URL WITH YOUR GOOGLE APPS SCRIPT URL 🔴
+                    const googleAppsScriptURL = 'https://script.google.com/macros/s/AKfycbzBCDXB1eYydwmks1-WnarvZVRsyKhNRhgcUd3B1TRvrGmIsS1K_nB73OZdF6WEYrRC/exec';
+                    
+                    // Prepare data as FormData (same as your working test)
+                    const formData = new FormData();
+                    formData.append('Name', name);
+                    formData.append('Class', classValue);
+                    formData.append('Message', message);
+                    formData.append('Timestamp', new Date().toLocaleString());
+                    
+                    console.log('Submitting data:', {name, classValue, message});
+                    
+                    fetch(googleAppsScriptURL, {
+                        method: 'POST',
+                        body: formData
+                    })
+                    .then(response => {
+                        console.log('Response status:', response.status);
+                        
+                        if (!response.ok) {
+                            throw new Error(`HTTP error! status: ${response.status}`);
+                        }
+                        return response.text(); // Changed from .json() to .text()
+                    })
+                    .then(data => {
+                        console.log('Response data:', data);
+                        
+                        // Parse the JSON response
+                        const parsedData = JSON.parse(data);
+                        
+                        if (parsedData.status === 'success') {
+                            alert(`Thank you, ${name}! Your registration has been recorded.`);
+                            contactForm.reset();
+                        } else {
+                            throw new Error(parsedData.message || 'Submission failed');
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Submission error:', error);
+                        
+                        let errorMessage = 'There was an error submitting your registration. ';
+                        
+                        if (error.message.includes('404')) {
+                            errorMessage += 'The submission URL is not found. Please check the Google Apps Script deployment.';
+                        } else if (error.message.includes('400')) {
+                            errorMessage += 'Bad request - there may be an issue with the data format.';
+                        } else if (error.message.includes('403')) {
+                            errorMessage += 'Permission denied - please check the Google Apps Script permissions.';
+                        } else if (error.message.includes('Failed to fetch')) {
+                            errorMessage += 'Network error - please check your internet connection.';
+                        } else {
+                            errorMessage += 'Please try again or contact support.';
+                        }
+                        
+                        alert(errorMessage);
+                    })
+                    .finally(() => {
+                        // Re-enable submit button
+                        submitButton.textContent = originalText;
+                        submitButton.disabled = false;
                     });
+                } else {
+                    alert('Please fill in all fields.');
                 }
             });
+        }
+        
+        // Smooth scrolling for navigation links (only if navigation exists)
+        const navLinks = document.querySelectorAll('nav a[href^="#"]');
+        
+        // Handle window resize AND orientation changes
+        let resizeTimeout;
+        window.addEventListener('resize', function() {
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(function() {
+                console.log('Window resized/orientation changed, reinitializing carousels...');
+                optimizeVideoForDevice();
+                initPhotoCarousels();
+            }, 500);
         });
-    }
-    
-    // Handle window resize AND orientation changes
-    let resizeTimeout;
-    window.addEventListener('resize', function() {
-        clearTimeout(resizeTimeout);
-        resizeTimeout = setTimeout(function() {
-            console.log('Window resized/orientation changed, reinitializing carousels...');
-            optimizeVideoForDevice();
-            initPhotoCarousels();
-        }, 500);
+        
+        // Touch-friendly interactions
+        if ('ontouchstart' in window) {
+            document.body.classList.add('touch-device');
+        }
     });
-    
-    // Touch-friendly interactions
-    if ('ontouchstart' in window) {
-        document.body.classList.add('touch-device');
-    }
-});
     </script>
 </body>
 </html>

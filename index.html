@@ -20,6 +20,15 @@
             </ul>
         </nav>
     </header> -->
+    <audio id="music" loop>
+        <source src="music.wav" type="audio/wav">
+    </audio>
+
+    <script>
+        document.addEventListener('mousemove', function() {
+            document.getElementById('music').play();
+        }, { once: true });
+    </script>
 
     <main>
         <!-- Hero Video Section -->

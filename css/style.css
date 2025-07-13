@@ -128,11 +128,11 @@ nav a.active {
 
 .hero-content h1 {
     font-family: 'Noto Serif', serif;
-    font-weight: 200;
+    font-weight: 270;
     font-size: 7rem;
     margin-bottom: 1rem;
     margin-top: 100px;
-    text-shadow: 2px 2px 4px  #5a3a14;
+    text-shadow: 2px 2px 4px #5a3a14; /*#ff3131 #90c0c4*/
     animation: fadeInUp 1s ease-out;
     color: #e9931a;
     letter-spacing: 2.5px;
@@ -140,10 +140,10 @@ nav a.active {
 
 .hero-content p {
     font-family: 'Noto Serif', serif;
-    font-weight: 100;
+    font-weight: 250;
     font-size: 1.2rem;
     margin-bottom: 2rem;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    text-shadow: 1px 1px 2px #5a3a14;
     animation: fadeInUp 1s ease-out 0.3s both;
     color: #e9931a;
     letter-spacing: 2.5px;
@@ -361,7 +361,7 @@ main {
     font-style: italic;
 }
 
-/* Content sections with alternating layouts */
+/* Content sections*/
 .content-section {
     margin: 6rem auto;
     max-width: 1200px;
@@ -399,6 +399,48 @@ section#chill .content-wrapper {
     color: #4a4e40;
     margin-bottom: 1.5rem;
     letter-spacing: 1px;
+}
+
+/* Clickable title styles */
+.clickable-title {
+    position: relative;
+}
+
+.clickable-title a {
+    color: #4a4e40 !important;
+    text-decoration: none;
+    cursor: url('../images/cursor_7.png'), url('images/cursor_7.png'), pointer !important;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+}
+
+.clickable-title a:visited {
+    color: #4a4e40 !important;
+}
+
+.clickable-title a:hover {
+    color: #e9931a !important;
+    transform: translateY(-2px);
+    text-shadow: 2px 2px 4px rgba(233, 147, 26, 0.3);
+}
+
+.clickable-title a:active {
+    color: #4a4e40 !important;
+}
+
+.clickable-title a::after {
+    content: '→';
+    opacity: 0;
+    margin-left: 1rem;
+    transition: all 0.3s ease;
+    font-size: 0.8em;
+    color: #e9931a;
+}
+
+.clickable-title a:hover::after {
+    opacity: 1;
+    margin-left: 1.5rem;
 }
 
 .text-content p {
@@ -475,31 +517,6 @@ section#chill .content-wrapper {
     background: linear-gradient(45deg, #f1cb32, #4a4e40);
 }
 
-/* Gradient placeholders */
-.gradient-placeholder {
-    background: linear-gradient(135deg, #f1cb32, #4a4e40);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-size: 1.2rem;
-    text-align: center;
-    padding: 2rem;
-    border-radius: 8px;
-}
-
-.gradient-placeholder i {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-    display: block;
-}
-
-.gradient-placeholder p {
-    margin: 0;
-    font-family: 'Noto Serif', serif;
-    font-weight: 200;
-}
-
 /* Buttons - consistent styling */
 .btn {
     background: #f1cb32;
@@ -514,7 +531,7 @@ section#chill .content-wrapper {
     transition: all 0.3s ease;
     display: inline-block;
     border: none;
-    cursor: pointer;
+    cursor: url('../images/cursor_7.png'), url('images/cursor_7.png'), pointer !important;
     font-size: 1rem;
 }
 
@@ -537,6 +554,27 @@ section#chill .content-wrapper {
 .btn-outline:hover {
     background: #4a4e40;
     color: #f1cb32;
+}
+
+/* Button styling */
+.alternating-form button {
+    background: #4a4e40;
+    border: 2px solid #4a4e40;
+    color: #f1e4c2;
+    padding: 1rem 3rem;
+    font-size:1.1rem;
+    font-family: 'Noto Serif', serif;
+    font-weight: 200;
+    letter-spacing: 1px;
+    cursor: url('../images/cursor_7.png'), url('images/cursor_7.png'), pointer !important;
+    transition: all 0.3s ease;
+    /* text-transform: uppercase; */
+}
+
+.alternating-form button:hover {
+    background: #2c3e50;
+    color: #f1e4c2;
+    transform: translateY(-2px);
 }
 
 /* Special sections */
@@ -577,7 +615,7 @@ section#chill .content-wrapper {
     margin-bottom: 3rem;
     color: #666;
     font-family: 'Noto Serif', serif;
-    font-weight: 100;
+    font-weight: 170;
     font-size: 1.2rem;
 }
 
@@ -586,20 +624,11 @@ section#chill .content-wrapper {
     width: 100%;
 }
 
-.input-group {
+.input-group{
     margin: 3rem 0;
     width: 100%;
-}
-
-.input-group.left {
-    text-align: left;
-    padding-left: 0;
-    padding-right: 40%;
-}
-
-.input-group.right {
     text-align: right;
-    padding-left: 40%;
+    padding-left: 0;
     padding-right: 0;
 }
 
@@ -609,10 +638,10 @@ section#chill .content-wrapper {
     border: none;
     border-bottom: 2px solid #ddd;
     padding: 1rem 0;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     width: 100%;
     font-family: 'Noto Serif', serif;
-    font-weight: 100;
+    font-weight: 300;
     color: #4a4e40;
     transition: border-color 0.3s ease;
 }
@@ -761,7 +790,7 @@ footer p {
     }
     
     .event-container h2 {
-        font-size: 2.5rem;
+        font-size: 3rem;
         margin-bottom: 2rem;
     }
     
@@ -796,11 +825,10 @@ footer p {
     }
     
     .event-description p {
-        font-size: 1.1rem;
+        font-size: 1.5rem;
     }
     
-    .input-group.left,
-    .input-group.right {
+    .input-group{
         padding-left: 0;
         padding-right: 0;
         text-align: center;

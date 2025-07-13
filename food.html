@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food - slwy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100;0,200;0,300;0,400;0,700;1,100;1,200;1,300;1,400;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Navigation Header -->
+    <header>
+        <nav>
+            <h1><a href="index.html">slwy</a></h1>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="music.html">Music</a></li>
+                <li><a href="food.html" class="active">Food</a></li>
+                <li><a href="chill.html">Chill</a></li>
+                <li><a href="contribute.html">Contribute</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="page-content">
+        <!-- Page Header -->
+        <section class="page-header">
+            <h1>Food</h1>
+            <p>More than sustenance—it's culture, creativity, and connection. From our kitchen to yours, we celebrate the artistry of flavor and the joy of sharing meals together.</p>
+        </section>
+
+        <!-- Food Prep Team Section -->
+        <section class="content-section">
+            <div class="content-wrapper">
+                <div class="text-content">
+                    <h2>Our Food Prep Team</h2>
+                    <p>Led by Shyan, our dedicated youth food prep team works with love and care to create nourishing meals for our community. Using fresh, locally-sourced ingredients, they craft dishes that bring warmth and comfort to everyone who joins us. Every meal is prepared with intention and joy.</p>
+                    <div style="margin-top: 2rem;">
+                        <a href="contribute.html#volunteer" class="btn">Join Us</a>
+                    </div>
+                </div>
+                <div class="media-content">
+                    <video autoplay muted loop playsinline>
+                        <source src="videos/food-prep-team.mp4" type="video/mp4">
+                        <source src="videos/food-prep-team.webm" type="video/webm">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+            </div>
+        </section>
+
+        <!-- Community Dishes Section -->
+        <section class="content-section">
+            <div class="content-wrapper">
+                <div class="media-content">
+                    <div class="photo-carousel">
+                        <div class="photo-slide active">
+                            <img src="images/homemade-dishes1.jpg" alt="Homemade community dishes">
+                        </div>
+                        <div class="photo-slide">
+                            <img src="images/homemade-dishes2.jpg" alt="Family recipes shared">
+                        </div>
+                        <div class="photo-slide">
+                            <img src="images/homemade-dishes3.jpg" alt="Cultural foods">
+                        </div>
+                        <div class="photo-slide">
+                            <img src="images/homemade-dishes4.jpg" alt="Cooking with love">
+                        </div>
+                    </div>
+                </div>
+                <div class="text-content">
+                    <h2>Community Homemade Dishes</h2>
+                    <p>The heart of our gathering comes from the dishes our participants lovingly prepare and bring to share. Each homemade creation tells a story—of heritage, creativity, family traditions, and personal expression. These authentic, made-with-love contributions create the diverse tapestry of flavors that makes our meal truly special.</p>
+                    <div style="margin-top: 2rem;">
+                        <a href="contribute.html#food-form" class="btn">Share Your Dish</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Drinks Bar Section -->
+        <section class="content-section">
+            <div class="content-wrapper">
+                <div class="text-content">
+                    <h2>Artisanal Drinks Bar</h2>
+                    <p>Complement your meal with our carefully curated selection of matcha, coffee, and kombucha. Each drink is crafted with quality ingredients and attention to detail. Support our drinks bar with a $5 contribution in exchange for a drinks ticket, and choose your perfect beverage to accompany the experience.</p>
+                    <div style="margin-top: 2rem;">
+                        <a href="contribute.html#drinks-form" class="btn">Get Drinks Ticket</a>
+                    </div>
+                </div>
+                <div class="media-content">
+                    <div class="photo-carousel">
+                        <div class="photo-slide active">
+                            <img src="images/matcha-preparation.jpg" alt="Matcha being prepared">
+                        </div>
+                        <div class="photo-slide">
+                            <img src="images/coffee-brewing.jpg" alt="Coffee brewing process">
+                        </div>
+                        <div class="photo-slide">
+                            <img src="images/kombucha-selection.jpg" alt="Kombucha varieties">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Food Philosophy Section -->
+        <section class="text-section highlight-section">
+            <h2>The Art of Shared Meals</h2>
+            <p>Food becomes magical when it's shared. Whether it's the collaborative effort of our prep team, the personal stories behind each homemade dish, or the ritual of enjoying a thoughtfully prepared drink together, every element contributes to building community and creating connections.</p>
+            <p>At slwy, we believe that the act of preparing, sharing, and enjoying food together is one of the most fundamental ways we express care for one another and build lasting bonds.</p>
+        </section>
+
+        <!-- Call to Action Section -->
+        <section class="text-section subtle-section">
+            <h2>Be Part of the Feast</h2>
+            <p>Whether you want to join our kitchen crew, share a dish from your heart, or simply enjoy quality beverages with friends, there's a place for you at our table. Every contribution, big or small, helps create the warm, nourishing experience that makes slwy special.</p>
+            <div style="margin-top: 2rem;">
+                <a href="contribute.html" class="btn">Explore Ways to Contribute</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 daybyday. All rights reserved.</p>
+    </footer>
+
+    <script>
+    // Wait for the DOM to be fully loaded
+    document.addEventListener('DOMContentLoaded', function() {
+        console.log('Food page loaded, initializing carousels...');
+        
+        // Photo carousel functionality
+        function initPhotoCarousels() {
+            const carousels = document.querySelectorAll('.photo-carousel');
+            console.log(`Found ${carousels.length} carousels`);
+            
+            carousels.forEach((carousel, carouselIndex) => {
+                const slides = carousel.querySelectorAll('.photo-slide');
+                console.log(`Carousel ${carouselIndex + 1} has ${slides.length} slides`);
+                
+                let currentSlide = 0;
+                
+                if (slides.length > 0) {
+                    if (carousel.intervalId) {
+                        clearInterval(carousel.intervalId);
+                    }
+                    
+                    slides.forEach(slide => slide.classList.remove('active'));
+                    slides[0].classList.add('active');
+                    
+                    function showNextSlide() {
+                        slides[currentSlide].classList.remove('active');
+                        currentSlide = (currentSlide + 1) % slides.length;
+                        slides[currentSlide].classList.add('active');
+                    }
+                    
+                    carousel.intervalId = setInterval(showNextSlide, 3000);
+                    console.log(`Carousel ${carouselIndex + 1} initialized with ${slides.length} slides`);
+                }
+            });
+        }
+        
+        // Initialize carousels
+        initPhotoCarousels();
+        
+        // Video optimization
+        function optimizeVideoForDevice() {
+            const videos = document.querySelectorAll('video');
+            
+            videos.forEach(video => {
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            video.play().catch(e => console.log('Video play failed:', e));
+                        } else {
+                            video.pause();
+                        }
+                    });
+                });
+                
+                observer.observe(video);
+            });
+        }
+        
+        optimizeVideoForDevice();
+        
+        // Header background change on scroll
+        const header = document.querySelector('header');
+        if (header) {
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 100) {
+                    header.style.backgroundColor = 'rgba(74, 78, 64, 0.95)';
+                } else {
+                    header.style.backgroundColor = '#4a4e40';
+                }
+            });
+        }
+        
+        // Handle window resize
+        let resizeTimeout;
+        window.addEventListener('resize', function() {
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(function() {
+                optimizeVideoForDevice();
+                initPhotoCarousels();
+            }, 500);
+        });
+    });
+    </script>
+</body>
+</html>images/food-prep4.jpg" alt="Plating dishes">
+                        </div>
+                    </div>
+                </div>
+                <div class="text-content">
+                    <h2>Shared Experiences</h2>
+                    <p>There's something magical about preparing food together—the laughter over chopped vegetables, the anticipation as aromas fill the air, and the satisfaction of creating something delicious as a community. Food becomes the medium through which we connect.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Culinary Philosophy Section -->
+        <section class="text-section highlight-section">
+            <h2>The Art of Flavor</h2>
+            <p>Every dish tells a story—of heritage passed down through generations, of creativity sparked by seasonal ingredients, of the love that goes into each carefully crafted bite. Food is our most intimate connection to culture, memory, and each other.</p>
+            <p>From the sizzle of fresh ingredients hitting a hot pan to the careful plating that makes each dish a work of art, cooking engages all our senses and brings out our most nurturing instincts.</p>
+        </section>
+
+        <!-- Community Cooking Section -->
+        <section class="content-section">
+            <div class="content-wrapper">
+                <div class="text-content">
+                    <h2>Community Kitchen</h2>
+                    <p>The best meals happen when we cook together. There's wisdom in the collective—someone knows just the right amount of spice, another has the perfect technique for that tricky sauce, and together we create something greater than the sum of its parts.</p>
+                </div>
+                <div class="media-content">
+                    <video autoplay muted loop playsinline>
+                        <source src="videos/cooking-together.mp4" type="video/mp4">
+                        <source src="videos/cooking-together.webm" type="video/webm">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+            </div>
+        </section>
+
+        <!-- Food at Event Section -->
+        <section class="text-section subtle-section">
+            <h2>Food at slwy</h2>
+            <p>Our gathering will feature a thoughtfully curated selection of foods that celebrate both comfort and discovery. Expect locally-sourced ingredients, collaborative cooking stations, and dishes that spark conversation and connection. Whether you're sharing a recipe or trying something new, food will be one of the ways we build community together.</p>
+            <div style="margin-top: 2rem;">
+                <a href="index.html#contact" class="btn">Join the Feast</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 daybyday. All rights reserved.</p>
+    </footer>
+
+    <script>
+    // Wait for the DOM to be fully loaded
+    document.addEventListener('DOMContentLoaded', function() {
+        console.log('Food page loaded, initializing carousels...');
+        
+        // Photo carousel functionality
+        function initPhotoCarousels() {
+            const carousels = document.querySelectorAll('.photo-carousel');
+            console.log(`Found ${carousels.length} carousels`);
+            
+            carousels.forEach((carousel, carouselIndex) => {
+                const slides = carousel.querySelectorAll('.photo-slide');
+                console.log(`Carousel ${carouselIndex + 1} has ${slides.length} slides`);
+                
+                let currentSlide = 0;
+                
+                if (slides.length > 0) {
+                    if (carousel.intervalId) {
+                        clearInterval(carousel.intervalId);
+                    }
+                    
+                    slides.forEach(slide => slide.classList.remove('active'));
+                    slides[0].classList.add('active');
+                    
+                    function showNextSlide() {
+                        slides[currentSlide].classList.remove('active');
+                        currentSlide = (currentSlide + 1) % slides.length;
+                        slides[currentSlide].classList.add('active');
+                    }
+                    
+                    carousel.intervalId = setInterval(showNextSlide, 3000);
+                    console.log(`Carousel ${carouselIndex + 1} initialized with ${slides.length} slides`);
+                }
+            });
+        }
+        
+        // Initialize carousels
+        initPhotoCarousels();
+        
+        // Video optimization
+        function optimizeVideoForDevice() {
+            const videos = document.querySelectorAll('video');
+            
+            videos.forEach(video => {
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            video.play().catch(e => console.log('Video play failed:', e));
+                        } else {
+                            video.pause();
+                        }
+                    });
+                });
+                
+                observer.observe(video);
+            });
+        }
+        
+        optimizeVideoForDevice();
+        
+        // Header background change on scroll
+        const header = document.querySelector('header');
+        if (header) {
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 100) {
+                    header.style.backgroundColor = 'rgba(74, 78, 64, 0.95)';
+                } else {
+                    header.style.backgroundColor = '#4a4e40';
+                }
+            });
+        }
+        
+        // Handle window resize
+        let resizeTimeout;
+        window.addEventListener('resize', function() {
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(function() {
+                optimizeVideoForDevice();
+                initPhotoCarousels();
+            }, 500);
+        });
+    });
+    </script>
+</body>
+</html>

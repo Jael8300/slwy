@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Confirmed - slwy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100;0,200;0,300;0,400;0,700;1,100;1,200;1,300;1,400;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+        
+        .hero-section {
+            position: relative;
+            width: 100vw;
+            min-height: 100vh;
+            overflow: hidden;
+        }
+        
+        .video-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -1;
+        }
+        
+        #heroVideo {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+        
+        .video-overlay {
+            position: relative;
+            min-height: 100vh;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+        
+        .confirmation-container {
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+            z-index: 10;
+        }
+        
+        .confirmation-card {
+            background: rgba(241, 228, 194, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 3rem;
+            margin: 2rem auto;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            border-radius: 12px;
+        }
+        
+        .confirmation-card h1 {
+            font-family: 'Noto Serif', serif;
+            font-weight: 470;
+            font-size: 2.5rem;
+            color: #e9931a;
+            margin-bottom: 1rem;
+        }
+        
+        .confirmation-details {
+            margin: 2rem 0;
+            text-align: left;
+            padding: 1.5rem;
+            border-radius: 8px;
+        }
+        
+        .confirmation-details p {
+            font-family: 'Noto Serif', serif;
+            font-weight: 200;
+            font-size: 1.1rem;
+            color: #4a2700;
+            margin: 0.5rem 0;
+        }
+        
+        .confirmation-details strong {
+            font-weight: 400;
+        }    
+        
+        .back-link {
+            margin-top: 2rem;
+        }
+        
+        .back-link a {
+            color: #f2f3ed;
+            text-decoration: none;
+            font-family: 'Noto Serif', serif;
+            font-weight: 300;
+            font-size: 1.1rem;
+            transition: color 0.3s ease;
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: rgba(74, 39, 0, 0.7);
+            backdrop-filter: blur(50px);
+            border-radius: 25px;
+        }
+        
+        .back-link a:hover {
+            color: #e9931a;
+            background: rgba(74, 39, 0, 0.9);
+            backdrop-filter: blur(50px);
+        }
+        
+        @media (max-width: 768px) {
+            .confirmation-card {
+                padding: 2rem;
+                margin: 1rem auto;
+            }
+            
+            .confirmation-card h1 {
+                font-size: 2rem;
+            }
+            
+            .confirmation-details p {
+                font-size: 1rem;
+            }
+            
+            .video-overlay {
+                padding: 1rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .confirmation-card {
+                padding: 1.5rem;
+            }
+            
+            .confirmation-card h1 {
+                font-size: 1.8rem;
+            }
+            
+            .confirmation-details {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Video Section -->
+    <section id="hero-video" class="hero-section">
+        <div class="video-container">
+            <video id="heroVideo" autoplay muted loop playsinline>
+                <source src="videos/hero-video.mp4" type="video/mp4">
+                <source src="videos/hero-video.webm" type="video/webm">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <div class="video-overlay">
+            <div class="confirmation-container">
+                <div class="confirmation-card">
+                    <h1>You're Registered!</h1>
+                    <p style="font-family: 'Noto Serif', serif; font-size: 1rem; color: #4a2700; font-weight: 250;">
+                        Thank you for registering for slwy.
+                    </p>                    
+                    <div class="confirmation-details" id="confirmationDetails">
+                        <!-- Details will be populated by JavaScript -->
+                    </div>
+                </div>
+                
+                <div class="back-link">
+                    <a href="index.html">← Back to Home</a>
+                </div>
+            </div>
+            
+            <!-- Hidden canvas for generating registration card image -->
+            <canvas id="cardCanvas" style="display: none;"></canvas>
+        </div>
+    </section>
+
+    
+    
+    <script>
+        // Get registration data from URL parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const name = urlParams.get('name') || 'Guest';
+        const className = urlParams.get('class') || '';
+        const bringFood = urlParams.get('bringFood') === 'Yes';
+        const foodDetails = urlParams.get('foodDetails') || '';
+        
+        // Display confirmation details
+        const detailsDiv = document.getElementById('confirmationDetails');
+        let detailsHTML = `
+            <p><strong>Name:</strong> ${name}</p>
+            <p><strong>Class:</strong> ${className}</p>
+        `;
+        
+        if (bringFood && foodDetails) {
+            detailsHTML += `<p><strong>Bringing:</strong> ${foodDetails}</p>`;
+        }
+        
+        detailsHTML += `
+            <p style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid #f69e00;">
+                <strong>Event:</strong> slwy<br>
+                <strong>Date:</strong> Saturday, December 27th, 2025<br>
+                <strong>Time:</strong> 1:00 PM - 3.30 PM<br>
+                <strong>Location:</strong> Hall of Jewels, BW Monastery
+            </p>
+        `;
+        
+        detailsDiv.innerHTML = detailsHTML;
+    </script>
+</body>
+</html>

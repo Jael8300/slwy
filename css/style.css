@@ -1208,6 +1208,12 @@ footer p {
     .checkbox-label {
         font-size: 0.95rem;
     }
+    .contributions-table td {
+        font-size: 0.9rem;  /* Smaller on mobile only */
+    }
+    .contributions-table th {
+        font-size: 0.95rem;  /* Optional: make headers slightly smaller too */
+    }
 }
 
 @media (max-width: 1200px) and (min-width: 969px) {

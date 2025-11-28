@@ -3,7 +3,6 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    outline: 1px solid red;  /* Temporarily shows all element boundaries */
 }
 
 html, body {
@@ -1121,6 +1120,13 @@ footer p {
         flex-direction: column;
         gap: 0.5rem;
         text-align: center;
+    }
+    .contributions-table td {
+        font-size: 0.9rem;  /* Smaller on mobile only */
+    }
+    
+    .contributions-table th {
+        font-size: 0.95rem;  /* Optional: make headers slightly smaller too */
     }
 }
 

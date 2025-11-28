@@ -394,6 +394,15 @@ main {
     user-select: none;
 }
 
+.showcase-carousel {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;  /* This helps center items */
+    transition: transform 0.3s ease;
+    will-change: transform;
+    padding: 1rem 0;
+}
+
 .showcase-carousel-wrapper:active {
     cursor: grabbing;
 }
@@ -1049,6 +1058,15 @@ footer p {
     .showcase-item {
         flex: 0 0 200px;
         height: 200px;
+    }
+
+    .showcase-carousel-wrapper {
+        overflow: visible;  /* Allow overflow for side items */
+        padding: 0 1rem;
+    }
+    
+    .showcase-carousel {
+        justify-content: flex-start;  /* Start from left to allow proper centering */
     }
     
     /* Titles stay above carousel */

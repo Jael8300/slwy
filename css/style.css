@@ -203,7 +203,7 @@ main {
 .text-section {
     text-align: center;
     max-width: 800px;
-    margin: 4rem auto;
+    margin: 2rem auto;
     padding: 2rem;
     background: none;
     box-shadow: none;
@@ -236,7 +236,7 @@ main {
 
 /* Event Details Section - Horizontal Carousel */
 .event-section {
-    margin: 1rem auto;
+    margin: 0.5rem auto;
     max-width: 1200px;
     padding: 0.1rem 2rem;
     text-align: center;
@@ -366,7 +366,7 @@ main {
 
 /* Interactive Content Showcase */
 .showcase-section {
-    margin: 5rem auto;
+    margin: 2rem auto;
     max-width: 1000px;
     padding: 0 2rem;
 }
@@ -469,7 +469,7 @@ main {
 }
 
 .showcase-content {
-    margin-top: 1rem;
+    margin-top: 0.5rem;
     min-height: 0px;
 }
 
@@ -695,8 +695,8 @@ section#contribute .content-wrapper {
 /* Contact/Registration section */
 .contact-section {
     background: #8a9cc3;
-    margin: 4rem auto;
-    padding: 3rem;
+    margin: 2rem auto;
+    padding: 2rem;
     border-radius: 0;
     box-shadow: none;
     max-width: 800px;
@@ -942,7 +942,7 @@ footer p {
     }
     
     .hero-content h1 {
-        font-size: 4rem;
+        font-size: 6rem;
     }
     
     .page-header h1 {
@@ -1002,7 +1002,7 @@ footer p {
     }
     
     .hero-content h1 {
-        font-size: 3rem;
+        font-size: 4.5rem;
         margin-top: 50px;
     }
     
@@ -1106,7 +1106,7 @@ footer p {
     }
     
     .hero-content h1 {
-        font-size: 2rem;
+        font-size: 3rem;
         letter-spacing: 1.5px;
     }
     

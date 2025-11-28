@@ -521,7 +521,24 @@ document.addEventListener('DOMContentLoaded', function() {
                 setSliderPosition();
             }, 250);
         });
-    }
+
+        // Mobile orientation change fix
+        window.addEventListener('orientationchange', () => {
+            setTimeout(() => {
+                const itemWidth = getItemWidth();
+                const wrapperWidth = wrapper.offsetWidth;
+                const offset = (wrapperWidth / 2) - (itemWidth / 2);
+                currentTranslate = offset;
+                prevTranslate = currentTranslate;
+                setSliderPosition();
+            }, 300);
+        });
+
+        // Force center first item on page load (especially for mobile)
+        setTimeout(() => {
+            scrollToIndex(0);
+        }, 100);
+    }  // <-- Closing brace for initShowcaseCarousel
 
     initShowcaseCarousel();
 
@@ -703,4 +720,5 @@ document.addEventListener('DOMContentLoaded', function() {
     if ('ontouchstart' in window) {
         document.body.classList.add('touch-device');
     }
+
 });
